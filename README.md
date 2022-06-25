@@ -17,6 +17,6 @@ Following are the tools used during the project development:
 - jQuery
 
 ## Security Vulnerabilities
-There are no known bugs at its present stage.
+There are no known bugs at its present state.
 
 
