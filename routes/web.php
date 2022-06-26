@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApparelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('apparels', [ApparelController::class, 'index'])->name('apparel.index');
+Route::get('apparels/destroy/{id}', [ApparelController::class, 'destroy'])->name('apparel.destroy');
+Route::get('apparels/edit/{id}', [ApparelController::class, 'edit'])->name('apparel.edit');
+Route::post('apparels/update/{id}', [ApparelController::class, 'update'])->name('apparel.update');
+Route::get('apparels/create', [ApparelController::class, 'create'])->name('apparel.create');
+Route::post('apparels/store', [ApparelController::class, 'store'])->name('apparel.store');
