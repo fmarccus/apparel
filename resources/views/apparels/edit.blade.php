@@ -19,6 +19,34 @@
                 @endif
                 <div class="col-sm-7">
                     <a href="{{route('apparel.index')}}" class="btn btn-light fw-bold mb-3">Return to Inventory</a>
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img class="img-thumbnail" src="{{asset('images')}}/{{$apparel->image}}" style="width:14.5rem; height:16rem; margin:2px 2px 2px 2px;" alt="{{$apparel->name}}">
+                                </div>
+                                <div class="col-sm-8">
+                                    <h4 class="card-title">{{$apparel->name}}</h4>
+                                    <p class="card-text">SKU: {{$apparel->sku}}</p>
+                                    <hr>
+                                    <p><u>Inventory details</u></p>
+                                    <p>{{$apparel->quantity}} remaining</p>
+                                    <p>Purchase Price: <span class="text-danger">Php {{number_format($apparel->purchasePrice,2)}} </span></p>
+                                    <p>Retail Price: <span class="text-success">Php {{number_format($apparel->retailPrice,2)}} </span></p>
+                                    <hr>
+                                    <p><u>Product details</u></p>
+                                    <p>Color: {{$apparel->color}}</p>
+                                    <p>Style: {{$apparel->style}}</p>
+                                    <p>Type: {{$apparel->type}}</p>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <p class="card-text mb-3">Please fill out all the fields below and click on the "Update" button to update the apparel to the inventory.</p>
 
                     <hr>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApparelController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,6 @@ Route::get('apparels/edit/{id}', [ApparelController::class, 'edit'])->name('appa
 Route::post('apparels/update/{id}', [ApparelController::class, 'update'])->name('apparel.update');
 Route::get('apparels/create', [ApparelController::class, 'create'])->name('apparel.create');
 Route::post('apparels/store', [ApparelController::class, 'store'])->name('apparel.store');
+
+Route::get('shop/apparels', [CartController::class, 'index'])->name('shop.index');
+Route::get('shop/apparels/addtocart/{id}', [CartController::class, 'addtocart'])->name('shop.addtocart');

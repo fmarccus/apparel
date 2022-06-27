@@ -15,6 +15,18 @@
                     <x-jet-nav-link class="text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    @if(Auth::user()->userType == "admin")
+                    <x-jet-nav-link href="{{ route('apparel.index') }}" :active="request()->routeIs('apparel.index') || request()->routeIs('apparel.create') || request()->routeIs('apparel.edit')" class="text-decoration-none">
+                        {{ __('Inventory') }}
+                    </x-jet-nav-link>
+                    @endif
+
+                    @if(Auth::user()->userType == "user")
+                    <x-jet-nav-link href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart') " class="text-decoration-none">
+                        {{ __('Shop') }}
+                    </x-jet-nav-link>
+                    @endif
+
                 </div>
             </div>
 
