@@ -78,9 +78,15 @@
                         <div class="mb-3">
                             <label for="style" class="form-label">Style</label>
                             <select class="form-control shadow-none @error('style') is-invalid @enderror" name="style" id="style">
-                                <option>Select style</option>
-                                <option>Style</option>
-                                <option>Style</option>
+                                <option value="0">Select style</option>
+                                <option>Casual</option>
+                                <option>Elegant</option>
+                                <option>Boho</option>
+                                <option>Preppy</option>
+                                <option>Coordinates</option>
+                                <option>Basics</option>
+                                <option>Street</option>
+                                <option>Cute</option>
                             </select>
                             @error('style')
                             <small id="helpId" class="form-text text-danger">{{$message}}</small>
@@ -89,9 +95,17 @@
                         <div class="mb-3">
                             <label for="type" class="form-label">Type</label>
                             <select class="form-control shadow-none @error('type') is-invalid @enderror" name="type" id="type">
-                                <option>Select style</option>
-                                <option>Style</option>
-                                <option>Style</option>
+                                <option value="0">Select type</option>
+                                <option>Top</option>
+                                <option>Tee</option>
+                                <option>Bodycon</option>
+                                <option>Cami</option>
+                                <option>Polo</option>
+                                <option>Romper</option>
+                                <option>Tie dye
+                                </option>
+                                <option>Graphic</option>
+                                <option>Shirt</option>
                             </select>
                             @error('type')
                             <small id="helpId" class="form-text text-danger">{{$message}}</small>
