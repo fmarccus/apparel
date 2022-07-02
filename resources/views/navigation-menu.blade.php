@@ -12,18 +12,23 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
                     <x-jet-nav-link class="text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    @if(Auth::user()->userType == "admin")
+
+                    @if(Auth::user()->userType == 0)
                     <x-jet-nav-link href="{{ route('apparel.index') }}" :active="request()->routeIs('apparel.index') || request()->routeIs('apparel.create') || request()->routeIs('apparel.edit')" class="text-decoration-none">
                         {{ __('Inventory') }}
                     </x-jet-nav-link>
                     @endif
 
-                    @if(Auth::user()->userType == "user")
+                    @if(Auth::user()->userType == 1)
                     <x-jet-nav-link href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart') " class="text-decoration-none">
                         {{ __('Shop') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('shop.cart') }}" :active="request()->routeIs('shop.cart')" class="text-decoration-none">
+                        {{ __('Cart') }}
                     </x-jet-nav-link>
                     @endif
 

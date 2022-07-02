@@ -15,7 +15,7 @@ class ApparelController extends Controller
 
     public function index()
     {
-        if (Auth::user()->userType == "admin" && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
             $search = request()->query('search');
             if ($search) {
                 $apparels = Apparel::where('name', 'LIKE', "%{$search}%")
@@ -33,7 +33,7 @@ class ApparelController extends Controller
     }
     public function create()
     {
-        if (Auth::user()->userType == "admin" && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
             return view('apparels.create');
         } else {
             return redirect('login');
@@ -41,7 +41,7 @@ class ApparelController extends Controller
     }
     public function store(Request $request)
     {
-        if (Auth::user()->userType == "admin" && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
             $request->validate([
                 'name' => 'required|max:255',
                 'sku' => 'required|unique:apparels|max:12',
@@ -51,7 +51,7 @@ class ApparelController extends Controller
                 'color' => 'required|max:55',
                 'style' => 'required|max:55',
                 'type' => 'required|max:55',
-                'file' => 'nullable|image|mimes:jpeg,jpg,png,gif'
+                'file' => 'required|image|mimes:jpeg,jpg,png,gif|max:4096'
             ], []);
 
             $apparel = new Apparel();
@@ -77,7 +77,7 @@ class ApparelController extends Controller
     }
     public function edit(Request $request, $id)
     {
-        if (Auth::user()->userType == "admin" && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
             $apparel = Apparel::find($id);
             return view('apparels.edit', compact('apparel'));
         } else {
@@ -86,7 +86,7 @@ class ApparelController extends Controller
     }
     public function update(Request $request, $id)
     {
-        if (Auth::user()->userType == "admin" && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
             $request->validate([
                 'name' => 'required|max:255',
                 'sku' => "required|max:12|unique:apparels,sku,$id",
@@ -96,7 +96,7 @@ class ApparelController extends Controller
                 'color' => 'required|max:55',
                 'style' => 'required|max:55',
                 'type' => 'required|max:55',
-                'file' => 'nullable|image|mimes:jpeg,jpg,png,gif'
+                'file' => 'required|image|mimes:jpeg,jpg,png,gif|max:4096'
             ], []);
 
             $apparel = Apparel::find($id);
@@ -122,7 +122,7 @@ class ApparelController extends Controller
     }
     public function destroy($id)
     {
-        if (Auth::user()->userType == "admin" && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
             $apparel = Apparel::find($id);
             $directory = 'images/' . $apparel->image;
             if (File::exists($directory)) {

@@ -9,6 +9,16 @@
             <a href="{{route('shop.index')}}" class="btn btn-light mb-3 fw-bold">Return to Shop</a>
 
             <div class="row justify-content-center">
+                @if(session()->has('success'))
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Item added to cart',
+                        footer: '<a href="/cart">Check my cart</a>'
+                    })
+                </script>
+                @else
+                @endif
                 <div class="col-sm-6">
                     <img src="{{asset('images')}}/{{$apparel->image}}" class="img-fluid" alt="{{$apparel->name}}">
                 </div>
@@ -17,24 +27,35 @@
                         <div class="card-body">
                             <h4 class="card-title">{{ucwords($apparel->name)}}</h4>
                             <p class="card-text text-secondary">SKU: {{$apparel->sku}}</p>
-                            <h3 class="text-danger fw-bolder">Php {{number_format($apparel->retailPrice,2)}}</h3>
+                            <h3 class="fw-bolder" style="color:#fa6338">P{{number_format($apparel->retailPrice,2)}}</h3>
                             <hr>
-                            <form action="" method="post">
+                            <form action="{{route('shop.confirmitem')}}" method="post">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="" class="form-label fw-bold">Size</label>
-                                    <select class="w-50 form-select shadow-none @error('size') is-invalid @enderror" name="size" id="size">
+                                    <label for="item_size" class="form-label fw-bold">Size</label>
+                                    <select class="w-50 form-select shadow-none @error('item_size') is-invalid @enderror" name="item_size" id="item_size">
                                         <option selected>Select size</option>
-                                        <option value="">S</option>
-                                        <option value="">M</option>
-                                        <option value="">L</option>
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
                                     </select>
+                                    @error('item_size')
+                                    <small id="helpId" class="form-text text-danger">{{$message}}</small>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <div class="mb-3">
-                                        <label for="qty" class="form-label fw-bold">Quantity</label>
-                                        <input type="number" min=1 max=100 class="form-control shadow-none w-50" name="qty" id="qty">
-                                    
+                                        <label for="item_qty" class="form-label fw-bold">Quantity</label>
+                                        <input type="number" min="1" max="100" class="form-control shadow-none w-50 @error('item_qty') is-invalid @enderror" name="item_qty" id="item_qty">
+                                        @error('item_qty')
+                                        <small id="helpId" class="form-text text-danger">{{$message}}</small>
+                                        @enderror
+                                        <input type="hidden" name="user_id" value="{{Crypt::encrypt($user_id)}}">
+                                        <input type="hidden" name="item_id" value="{{Crypt::encrypt($apparel->id)}}">
+                                        <input type="hidden" name="item_name" value="{{Crypt::encrypt($apparel->name)}}">
+                                        <input type="hidden" name="item_price" value="{{Crypt::encrypt($apparel->retailPrice)}}">
+                                        <input type="hidden" name="item_image" value="{{Crypt::encrypt($apparel->image)}}">
+
                                     </div>
                                 </div>
                                 <div class="mb-4">

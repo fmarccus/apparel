@@ -37,4 +37,8 @@ Route::get('apparels/create', [ApparelController::class, 'create'])->name('appar
 Route::post('apparels/store', [ApparelController::class, 'store'])->name('apparel.store');
 
 Route::get('shop/apparels', [CartController::class, 'index'])->name('shop.index');
+Route::get('cart', [CartController::class, 'cart'])->name('shop.cart');
+Route::get('cart/destroy/{id}', [CartController::class, 'removefromcart'])->name('shop.removefromcart');
 Route::get('shop/apparels/addtocart/{id}', [CartController::class, 'addtocart'])->name('shop.addtocart');
+Route::post('shop/apparels/confirmitem', [CartController::class, 'confirmitem'])->name('shop.confirmitem');
+

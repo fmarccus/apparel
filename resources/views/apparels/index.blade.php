@@ -43,7 +43,7 @@
                                     <a href="{{route('apparel.edit', $apparel->id)}}" title="Click to show or update"><img class="img-thumbnail" src="{{asset('images')}}/{{$apparel->image}}" style="width:14.5rem; height:16rem; margin:2px 2px 2px 2px;" alt=""></a>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-center mb-3" style="font-size:16px;"><strong>{{ucwords($apparel->name)}}</strong> <em class="text-danger fw-bold">(Php {{number_format($apparel->retailPrice,2)}} )</em></h5>
+                                    <h5 class="card-title text-center mb-3" style="font-size:16px;">{{ucwords($apparel->name)}}<span class=" fw-bold" style="color:#fa6338"> P{{number_format($apparel->retailPrice,2)}}</span></h5>
                                     <p class="text-center" style="font-size:13px;">SKU: {{$apparel->sku}}</p>
                                     <span class="badge rounded-pill text-bg-dark float-end">{{$apparel->type}}</span>
                                     <br>

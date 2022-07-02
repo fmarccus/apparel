@@ -78,7 +78,7 @@
                         <div class="mb-3">
                             <label for="style" class="form-label">Style</label>
                             <select class="form-control shadow-none @error('style') is-invalid @enderror" name="style" id="style">
-                                <option value="0">Select style</option>
+                                <option value="">Select style</option>
                                 <option>Casual</option>
                                 <option>Elegant</option>
                                 <option>Boho</option>
@@ -95,7 +95,7 @@
                         <div class="mb-3">
                             <label for="type" class="form-label">Type</label>
                             <select class="form-control shadow-none @error('type') is-invalid @enderror" name="type" id="type">
-                                <option value="0">Select type</option>
+                                <option value="">Select type</option>
                                 <option>Top</option>
                                 <option>Tee</option>
                                 <option>Bodycon</option>
