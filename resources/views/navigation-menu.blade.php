@@ -14,7 +14,7 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
                     <x-jet-nav-link class="text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Home') }}
+                        {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
                     @if(Auth::user()->userType == 0)
