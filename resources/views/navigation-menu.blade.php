@@ -14,12 +14,15 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
                     <x-jet-nav-link class="text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Home') }}
                     </x-jet-nav-link>
 
                     @if(Auth::user()->userType == 0)
                     <x-jet-nav-link href="{{ route('apparel.index') }}" :active="request()->routeIs('apparel.index') || request()->routeIs('apparel.create') || request()->routeIs('apparel.edit')" class="text-decoration-none">
                         {{ __('Inventory') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('apparel.orders') }}" :active="request()->routeIs('apparel.orders') || request()->routeIs('apparel.order_details')" class="text-decoration-none">
+                        {{ __('Orders') }}
                     </x-jet-nav-link>
                     @endif
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Apparel;
+use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
@@ -133,5 +134,30 @@ class ApparelController extends Controller
         } else {
             return redirect('login');
         }
+    }
+    public function orders()
+    {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+            $search = request()->query('search');
+            if ($search) {
+                $orders = Cart::where('id', 'LIKE', "%{$search}%")
+                    ->orWhere('user_id', 'LIKE', "%{$search}%")
+                    ->orWhere('item_id', 'LIKE', "%{$search}%")
+                    ->orWhere('item_name', 'LIKE', "%{$search}%")
+                    ->orWhere('item_status', 'LIKE', "%{$search}%")
+                    ->orWhere('updated_at', 'LIKE', "%{$search}%")
+                    ->paginate(20);
+            } else {
+                $orders = DB::table('carts')->orderBy('created_at', 'asc')->paginate('20');
+            }
+            return view('apparels.orders', compact('orders'));
+        } else {
+            return redirect('login');
+        }
+    }
+    public function order_details($id)
+    {
+        $order = Cart::find($id);
+        return view('apparels.order_details', compact('order'));
     }
 }

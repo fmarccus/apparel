@@ -30,6 +30,9 @@ Route::middleware([
 });
 
 Route::get('apparels', [ApparelController::class, 'index'])->name('apparel.index');
+Route::get('orders', [ApparelController::class, 'orders'])->name('apparel.orders');
+Route::get('orders/show/{id}', [ApparelController::class, 'order_details'])->name('apparel.order_details');
+
 Route::get('apparels/destroy/{id}', [ApparelController::class, 'destroy'])->name('apparel.destroy');
 Route::get('apparels/edit/{id}', [ApparelController::class, 'edit'])->name('apparel.edit');
 Route::post('apparels/update/{id}', [ApparelController::class, 'update'])->name('apparel.update');
@@ -41,4 +44,3 @@ Route::get('cart', [CartController::class, 'cart'])->name('shop.cart');
 Route::get('cart/destroy/{id}', [CartController::class, 'removefromcart'])->name('shop.removefromcart');
 Route::get('shop/apparels/addtocart/{id}', [CartController::class, 'addtocart'])->name('shop.addtocart');
 Route::post('shop/apparels/confirmitem', [CartController::class, 'confirmitem'])->name('shop.confirmitem');
-
