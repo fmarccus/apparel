@@ -28,7 +28,7 @@
 
                     @if(Auth::user()->userType == 1)
                     <x-jet-nav-link href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart') " class="text-decoration-none">
-                        {{ __('Shop') }}
+                        {{ __('Apparels') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('shop.cart') }}" :active="request()->routeIs('shop.cart')" class="text-decoration-none">
                         {{ __('Cart') }}
