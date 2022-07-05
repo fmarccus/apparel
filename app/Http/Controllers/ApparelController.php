@@ -8,6 +8,8 @@ use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+
 
 
 
@@ -157,7 +159,40 @@ class ApparelController extends Controller
     }
     public function order_details($id)
     {
-        $order = Cart::find($id);
-        return view('apparels.order_details', compact('order'));
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+            $order = Cart::find($id);
+            return view('apparels.order_details', compact('order'));
+        } else {
+            return redirect('login');
+        }
+    }
+    public function change_order_status(Request $request, $id)
+    {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+            $request->validate([
+                'item_status' => 'required|in:Pending,For delivery,Completed'
+            ], []);
+
+            $order = Cart::find($id);
+
+            $apparel_id = Crypt::decrypt($request->item_id);
+            $apparel_item_qty = Crypt::decrypt($request->item_qty);
+            $order->item_status = $request->item_status;
+
+
+            if ($request->item_status == "For delivery") {
+                $order->save();
+                return back()->with('updated', '');
+            } elseif ($request->item_status == "Completed") {
+                DB::table('apparels')->where('id', $apparel_id)->decrement('quantity', $apparel_item_qty);
+                $order->save();
+                return back()->with('updated', '');
+            } else {
+                $order->save();
+                return back()->with('updated', '');
+            }
+        } else {
+            return redirect('login');
+        }
     }
 }

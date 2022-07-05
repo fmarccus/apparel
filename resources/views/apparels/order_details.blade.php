@@ -9,7 +9,16 @@
             <a href="{{route('apparel.orders')}}" class="btn btn-light mb-3 fw-bold">Return to Orders</a>
 
             <div class="row">
-
+                @if(session()->has('updated'))
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Item status updated successfully',
+                        footer: '<a href="/orders">Return to orders</a>'
+                    })
+                </script>
+                @else
+                @endif
                 <div class="col-sm-7">
                     <div class="card rounded-0 border-white">
 
@@ -34,6 +43,18 @@
                                             <tr>
                                                 <td>ORDERED BY USER</td>
                                                 <td>{{$order->user_id}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STATUS</td>
+                                                <td>
+                                                    @if($order->item_status == "Pending")
+                                                    <span class="badge rounded-pill bg-warning">{{$order->item_status}}</span>
+                                                    @elseif($order->item_status == "For delivery")
+                                                    <span class="badge rounded-pill bg-info">{{$order->item_status}}</span>
+                                                    @elseif($order->item_status == "Completed")
+                                                    <span class="badge rounded-pill bg-primary">{{$order->item_status}}</span>
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2" style="text-align: center; font-weight:bold">ITEM DETAILS</td>
@@ -71,12 +92,30 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <form action="{{route('apparel.change_order_status' ,$order->id)}}" method="post">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <input type="hidden" name="item_id" value="{{Crypt::encrypt($order->item_id)}}">
+                                            <input type="hidden" name="item_qty" value="{{Crypt::encrypt($order->item_qty)}}">
+
+                                            <label for="item_status" class="form-label">Item Status</label>
+                                            <select class="form-control shadow-none @error('item_status') is-invalid @enderror" name="item_status" id="item_status">
+                                                <option value="">Select item status</option>
+                                                <option>Pending</option>
+                                                <option>For delivery</option>
+                                                <option>Completed</option>
+                                            </select>
+                                            @error('item_status')
+                                            <small id="helpId" class="form-text text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                        <button onclick="return confirm('Change item status?')" class="btn btn-dark" type="submit">Done</button>
+                                    </form>
 
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                 </div>
             </div>

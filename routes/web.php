@@ -32,6 +32,8 @@ Route::middleware([
 Route::get('apparels', [ApparelController::class, 'index'])->name('apparel.index');
 Route::get('orders', [ApparelController::class, 'orders'])->name('apparel.orders');
 Route::get('orders/show/{id}', [ApparelController::class, 'order_details'])->name('apparel.order_details');
+Route::post('orders/change_order_status/{id}', [ApparelController::class, 'change_order_status'])->name('apparel.change_order_status');
+
 
 Route::get('apparels/destroy/{id}', [ApparelController::class, 'destroy'])->name('apparel.destroy');
 Route::get('apparels/edit/{id}', [ApparelController::class, 'edit'])->name('apparel.edit');
