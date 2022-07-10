@@ -35,7 +35,10 @@ class CartController extends Controller
     {
         if (Auth::user()->userType = 1 && Auth::user()->email_verified_at != NULL) {
             $user_id = Auth::user()->id;
-            $total_amount = DB::table('carts')->where('user_id', '=', $user_id)->sum('item_total');
+            $item_status_array = ["Pending", "For delivery"];
+            $total_amount = DB::table('carts')->where('user_id', '=', $user_id)
+                ->whereIn('item_status', $item_status_array)
+                ->sum('item_total');
             $items = Cart::where('user_id', $user_id)->get();
             return view('shops.cart', compact('items', 'total_amount'));
         } else {

@@ -31,7 +31,7 @@
 
                                     @if($item->item_status == "Pending")
                                     <span class="float-end badge rounded-pill bg-warning">{{$item->item_status}}</span>
-                                    @elseif($item->item_status == "To receive")
+                                    @elseif($item->item_status == "For delivery")
                                     <span class="float-end badge rounded-pill bg-info">{{$item->item_status}}</span>
                                     @elseif($item->item_status == "Completed")
                                     <span class="float-end badge rounded-pill bg-primary">{{$item->item_status}}</span>

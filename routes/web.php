@@ -28,21 +28,24 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-Route::get('apparels', [ApparelController::class, 'index'])->name('apparel.index');
+//MANAGE USER ORDERS
 Route::get('orders', [ApparelController::class, 'orders'])->name('apparel.orders');
 Route::get('orders/show/{id}', [ApparelController::class, 'order_details'])->name('apparel.order_details');
 Route::post('orders/change_order_status/{id}', [ApparelController::class, 'change_order_status'])->name('apparel.change_order_status');
-
-
-Route::get('apparels/destroy/{id}', [ApparelController::class, 'destroy'])->name('apparel.destroy');
-Route::get('apparels/edit/{id}', [ApparelController::class, 'edit'])->name('apparel.edit');
-Route::post('apparels/update/{id}', [ApparelController::class, 'update'])->name('apparel.update');
+//APPARELS SERVER SIDE
+Route::get('apparels', [ApparelController::class, 'index'])->name('apparel.index');
 Route::get('apparels/create', [ApparelController::class, 'create'])->name('apparel.create');
 Route::post('apparels/store', [ApparelController::class, 'store'])->name('apparel.store');
-
+Route::get('apparels/edit/{id}', [ApparelController::class, 'edit'])->name('apparel.edit');
+Route::post('apparels/update/{id}', [ApparelController::class, 'update'])->name('apparel.update');
+Route::get('apparels/destroy/{id}', [ApparelController::class, 'destroy'])->name('apparel.destroy');
+//DASHBOARD ANALYTICS
+Route::get('apparels/dashboard', [ApparelController::class, 'basic_data'])->name('apparel.basic_data');
+//USER MANAGEMENT
+Route::get('users', [ApparelController::class, 'users'])->name('apparel.users');
+//CLIENT SIDE
 Route::get('shop/apparels', [CartController::class, 'index'])->name('shop.index');
 Route::get('cart', [CartController::class, 'cart'])->name('shop.cart');
+Route::post('shop/apparels/confirmitem', [CartController::class, 'confirmitem'])->name('shop.confirmitem');
 Route::get('cart/destroy/{id}', [CartController::class, 'removefromcart'])->name('shop.removefromcart');
 Route::get('shop/apparels/addtocart/{id}', [CartController::class, 'addtocart'])->name('shop.addtocart');
-Route::post('shop/apparels/confirmitem', [CartController::class, 'confirmitem'])->name('shop.confirmitem');

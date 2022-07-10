@@ -18,11 +18,17 @@
                     </x-jet-nav-link>
 
                     @if(Auth::user()->userType == 0)
+                    <x-jet-nav-link href="{{route('apparel.basic_data')}}" :active="request()->routeIs('apparel.basic_data')" class="text-decoration-none">
+                        {{ __('Dashboard') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('apparel.index') }}" :active="request()->routeIs('apparel.index') || request()->routeIs('apparel.create') || request()->routeIs('apparel.edit')" class="text-decoration-none">
                         {{ __('Inventory') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('apparel.orders') }}" :active="request()->routeIs('apparel.orders') || request()->routeIs('apparel.order_details')" class="text-decoration-none">
                         {{ __('Orders') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('apparel.users') }}" :active="request()->routeIs('apparel.users')" class="text-decoration-none">
+                        {{ __('Manage Users') }}
                     </x-jet-nav-link>
                     @endif
 
