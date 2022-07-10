@@ -13,10 +13,39 @@ use Illuminate\Support\Facades\Crypt;
 
 class CartController extends Controller
 {
+    public function sort_type(Request $request)
+    {
+        if (Auth::user()->userType == 1 && Auth::user()->email_verified_at != NULL) {
+            $cheapest_apparel = DB::table('dashboards')->min('retailPrice');
+            $expensive_apparel = DB::table('dashboards')->max('retailPrice');
+            $category = $request->category;
+            $apparels = Apparel::where('type', $category)
+                ->paginate(1000);
+            return view('shops.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
+        } else {
+            return redirect('login');
+        }
+    }
+    public function sort_price(Request $request)
+    {
+        if (Auth::user()->userType == 1 && Auth::user()->email_verified_at != NULL) {
+            $cheapest_apparel = DB::table('dashboards')->min('retailPrice');
+            $expensive_apparel = DB::table('dashboards')->max('retailPrice');
+            $price = $request->price;
+            // $apparels = Apparel::where('retailPrice', $price)
+            //     ->paginate(1000);
+            $apparels = DB::table('apparels')->where('retailPrice', '<=', $price)->orderBy('retailPrice', 'desc')->paginate(1000);
+            return view('shops.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
+        } else {
+            return redirect('login');
+        }
+    }
     public function index()
     {
         if (Auth::user()->userType == 1 && Auth::user()->email_verified_at != NULL) {
             $search = request()->query('search');
+            $cheapest_apparel = DB::table('dashboards')->min('retailPrice');
+            $expensive_apparel = DB::table('dashboards')->max('retailPrice');
             if ($search) {
                 $apparels = Apparel::where('name', 'LIKE', "%{$search}%")
                     ->orWhere('type', 'LIKE', "%{$search}%")
@@ -26,7 +55,7 @@ class CartController extends Controller
             } else {
                 $apparels = DB::table('apparels')->orderBy('created_at', 'asc')->paginate('20');
             }
-            return view('shops.index', compact('apparels'));
+            return view('shops.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
         } else {
             return redirect('login');
         }
@@ -50,7 +79,7 @@ class CartController extends Controller
         if (Auth::user()->userType == 1 && Auth::user()->email_verified_at != NULL) {
             $apparel = Apparel::find($id);
             $user_id = Auth::user()->id;
-
+            
             return view('shops.addtocart', compact('apparel', 'user_id'));
         } else {
             return redirect('login');

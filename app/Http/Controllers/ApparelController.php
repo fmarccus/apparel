@@ -35,10 +35,41 @@ class ApparelController extends Controller
             return redirect('login');
         }
     }
+    // SORT BY TYPE
+    public function sort_type(Request $request)
+    {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+            $cheapest_apparel = DB::table('dashboards')->min('retailPrice');
+            $expensive_apparel = DB::table('dashboards')->max('retailPrice');
+            $category = $request->category;
+            $apparels = Apparel::where('type', $category)
+                ->paginate(1000);
+            return view('apparels.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
+        } else {
+            return redirect('login');
+        }
+    }
+    //SORT BY PRICE
+    public function sort_price(Request $request)
+    {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+            $cheapest_apparel = DB::table('dashboards')->min('retailPrice');
+            $expensive_apparel = DB::table('dashboards')->max('retailPrice');
+            $price = $request->price;
+            // $apparels = Apparel::where('retailPrice', $price)
+            //     ->paginate(1000);
+            $apparels = DB::table('apparels')->where('retailPrice', '<=', $price)->orderBy('retailPrice', 'desc')->paginate(1000);
+            return view('apparels.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
+        } else {
+            return redirect('login');
+        }
+    }
     //GET APPAREL LIST
     public function index()
     {
         if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+            $cheapest_apparel = DB::table('dashboards')->min('retailPrice');
+            $expensive_apparel = DB::table('dashboards')->max('retailPrice');
             $search = request()->query('search');
             if ($search) {
                 $apparels = Apparel::where('name', 'LIKE', "%{$search}%")
@@ -49,7 +80,7 @@ class ApparelController extends Controller
             } else {
                 $apparels = DB::table('apparels')->orderBy('created_at', 'asc')->paginate('20');
             }
-            return view('apparels.index', compact('apparels'));
+            return view('apparels.index', compact('apparels','cheapest_apparel','expensive_apparel'));
         } else {
             return redirect('login');
         }
@@ -234,7 +265,6 @@ class ApparelController extends Controller
         $users = DB::table('users')->count();
         $verified_users = DB::table('users')->where('email_verified_at', '!=', 'NULL')->count();
         $unverified_users = DB::table('users')->where('email_verified_at', '=', NULL)->count();
-        $client_users = DB::table('users')->where('userType', '=', 1)->count();
         $server_accounts = DB::table('users')->where('userType', '=', 0)->count();
         //basic
         $unique_apparels = DB::table('dashboards')->count();
@@ -260,6 +290,24 @@ class ApparelController extends Controller
         $for_delivery_orders = DB::table('carts')->where('item_status', '=', 'For delivery')->count();
         $completed_orders = DB::table('carts')->where('item_status', '=', 'Completed')->count();
 
-        return view('dashboards.index', compact('users'));
+        return view('dashboards.index', compact(
+            'users',
+            'verified_users',
+            'unverified_users',
+            'server_accounts',
+            'unique_apparels',
+            'quantity_apparels',
+            'cheapest_apparel',
+            'expensive_apparel',
+            'bodycon',
+            'cami',
+            'graphic',
+            'polo',
+            'romper',
+            'shirt',
+            'tee',
+            'tiedye',
+            'top',
+        ));
     }
 }
