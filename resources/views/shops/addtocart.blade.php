@@ -190,7 +190,25 @@
                     </div>
                 </div>
             </div>
-            
+
+            <div class="row mt-5">
+                <h4 class="fw-bold mb-3">Customers Also Viewed</h4>
+                @foreach($related_apparels as $related_apparel)
+                <div class="col-sm-3 mb-2 d-flex justify-content-center">
+                    <div class="card rounded-0 border-white" style="width: 15rem; height:22rem;">
+                        <div class="overflow-hidden">
+                            <a href="{{route('shop.addtocart', [$related_apparel->id, $related_apparel->type])}}"><img class="img-thumbnail" src="{{asset('images')}}/{{$related_apparel->image}}" style="width:14.5rem; height:16rem; margin:2px 2px 2px 2px;" alt="{{$apparel->name}}"></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-3" style="font-size:16px;">{{ucwords($related_apparel->name)}}</h5>
+                            <span class="badge rounded-pill text-bg-dark float-end">{{$related_apparel->type}}</span>
+                            <br>
+                            <small class="float-end fw-bold" style="color:#fa6338">P{{number_format($related_apparel->retailPrice,2)}} </small>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </section>
 </x-app-layout>

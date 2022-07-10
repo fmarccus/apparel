@@ -74,13 +74,14 @@ class CartController extends Controller
             return redirect('login');
         }
     }
-    public function addtocart($id)
+    public function addtocart($id, $type)
     {
         if (Auth::user()->userType == 1 && Auth::user()->email_verified_at != NULL) {
             $apparel = Apparel::find($id);
             $user_id = Auth::user()->id;
-            
-            return view('shops.addtocart', compact('apparel', 'user_id'));
+            $related_apparels = Apparel::where('type', $type)->get();
+            return view('shops.addtocart', compact('apparel', 'related_apparels', 'user_id'));
+            // dd($related_apparels);
         } else {
             return redirect('login');
         }

@@ -52,4 +52,4 @@ Route::get('shop/sort_price', [CartController::class, 'sort_price'])->name('shop
 Route::get('cart', [CartController::class, 'cart'])->name('shop.cart');
 Route::post('shop/apparels/confirmitem', [CartController::class, 'confirmitem'])->name('shop.confirmitem');
 Route::get('cart/destroy/{id}', [CartController::class, 'removefromcart'])->name('shop.removefromcart');
-Route::get('shop/apparels/addtocart/{id}', [CartController::class, 'addtocart'])->name('shop.addtocart');
+Route::get('shop/apparels/addtocart/{id}/{type}', [CartController::class, 'addtocart'])->name('shop.addtocart');
