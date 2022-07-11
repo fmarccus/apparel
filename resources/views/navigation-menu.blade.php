@@ -1,6 +1,6 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class=" border-b border-gray-100" style="background-color:#F4C7BD;">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -11,9 +11,9 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" >
 
-                    <x-jet-nav-link class="text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link class="text-decoration-none fw-bold" style="color:#433123;" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" >
                         {{ __('Home') }}
                     </x-jet-nav-link>
 
@@ -33,10 +33,10 @@
                     @endif
 
                     @if(Auth::user()->userType == 1)
-                    <x-jet-nav-link href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart') " class="text-decoration-none">
+                    <x-jet-nav-link class="text-decoration-none fw-bold" style="color:#433123;"  href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart') ">
                         {{ __('Apparels') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('shop.cart') }}" :active="request()->routeIs('shop.cart')" class="text-decoration-none">
+                    <x-jet-nav-link class="text-decoration-none fw-bold" style="color:#433123;"  href="{{ route('shop.cart') }}" :active="request()->routeIs('shop.cart')">
                         {{ __('Cart') }}
                     </x-jet-nav-link>
                     @endif

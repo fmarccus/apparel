@@ -1212,6 +1212,9 @@ select {
 .inline-flex {
   display: inline-flex;
 }
+.table {
+  display: table;
+}
 .grid {
   display: grid;
 }
@@ -1655,11 +1658,11 @@ select {
 .pb-1 {
   padding-bottom: 0.25rem;
 }
-.pt-8 {
-  padding-top: 2rem;
-}
 .pb-5 {
   padding-bottom: 1.25rem;
+}
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;

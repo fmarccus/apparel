@@ -1,0 +1,1 @@
+<img class="rounded-circle" src="{{asset('images')}}/rye-logo.png" style="width:3rem; height:3rem;" alt="">
