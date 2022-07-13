@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rye Apparel</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Italianno&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet"> 
 
 </head>
 
@@ -18,11 +22,11 @@
         <div class="relative max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
             <div class="max-w-xl text-center sm:text-left">
 
-                <h1 class="p-2 font-extrabold text-8xl sm:text-8xl bg-gradient-to-tl from-red-200 via-sky-400 to-indigo-700 bg-clip-text text-transparent">Rye</h1><br>
-                <h1 class="p-2 font-extrabold text-6xl sm:text-8xl bg-gradient-to-tl from-red-200 via-sky-400 to-indigo-700 bg-clip-text text-transparent">Apparel</h1>
+                <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-rose-200 to-rose-700 bg-clip-text text-transparent" style="font-family: 'DM Serif Display', serif; letter-spacing: 10px; font-size:10rem;">RYE</h1>
+                <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-rose-200 to-rose-700 bg-clip-text text-transparent" style="font-family: 'Allura', cursive; margin-top:-2.9rem; letter-spacing:1px;" >apparels</h1>
 
 
-                <p class="p-2 mt-16 font-bold max-w-lg sm:leading-relaxed sm:text-2xl text-white">
+                <p class="p-2 mt-16 font-bold bg-gradient-to-tl from-zinc-600 to-amber-800 bg-clip-text text-transparent max-w-lg sm:leading-relaxed sm:text-2xl">
                 Fashion as unique as you are.
                 </p>
 
@@ -34,12 +38,12 @@
                     </a>
                     @else
 
-                    <a href="{{ route('login') }}" class="block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-gray-800 sm:w-auto active:bg-slate-700 hover:bg-cyan-800 focus:outline-none focus:ring" href="/get-started">
-                        Login
+                    <a href="{{ route('login') }}" class="block w-full font-bold px-12 py-3 text-sm text-white rounded shadow bg-amber-700 sm:w-auto active:bg-amber-900" href="/get-started">
+                        LOGIN
                     </a>
                     @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="block w-full px-12 py-3 text-sm font-medium bg-white rounded shadow text-black sm:w-auto hover:text-cyan-800 active:bg-slate-700 focus:outline-none focus:ring" href="/about">
-                        Register
+                    <a href="{{ route('register') }}" class="block w-full font-bold px-12 py-3 text-sm  bg-orange-200 rounded shadow text-black sm:w-auto active:bg-rose-100" href="/about">
+                        REGISTER
                     </a>
                     @endif
                     @endauth
@@ -54,10 +58,13 @@
 
 <style>
     html {
-        background-image: url('../images/rye-logo.png');
+        background-image: url('../images/l-page.png');
         height: 100%;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        width: 100%;
+        object-fit: cover;
+        
     }
 </style>
