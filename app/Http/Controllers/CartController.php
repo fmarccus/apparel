@@ -109,6 +109,7 @@ class CartController extends Controller
             $cart->item_name = Crypt::decrypt($request->item_name);
             $cart->item_image = Crypt::decrypt($request->item_image);
             $cart->item_size = $request->item_size;
+            $cart->orig_price = Crypt::decrypt($request->orig_price);
             $cart->item_price = Crypt::decrypt($request->item_price);
             $cart->item_qty = $request->item_qty;
             $cart->item_total = Crypt::decrypt($request->item_price) * $request->item_qty;

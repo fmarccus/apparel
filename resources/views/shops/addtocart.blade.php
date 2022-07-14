@@ -53,6 +53,7 @@
                                         <input type="hidden" name="user_id" value="{{Crypt::encrypt($user_id)}}">
                                         <input type="hidden" name="item_id" value="{{Crypt::encrypt($apparel->id)}}">
                                         <input type="hidden" name="item_name" value="{{Crypt::encrypt($apparel->name)}}">
+                                        <input type="hidden" name="orig_price" value="{{Crypt::encrypt($apparel->purchasePrice)}}">
                                         <input type="hidden" name="item_price" value="{{Crypt::encrypt($apparel->retailPrice)}}">
                                         <input type="hidden" name="item_image" value="{{Crypt::encrypt($apparel->image)}}">
 

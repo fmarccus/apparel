@@ -85,7 +85,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="card border-white rounded-0">
+                    <div class="card border-white rounded-0 mb-3">
                         <div class="card-body">
                             <form action="{{route('apparel.sort_price')}}" method="get">
                                 @csrf

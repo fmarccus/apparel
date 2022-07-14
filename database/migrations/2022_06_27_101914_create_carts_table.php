@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('item_name');
             $table->string('item_image');
             $table->string('item_size');
+            $table->double('orig_price');
             $table->double('item_price');
             $table->double('item_qty');
             $table->double('item_total');

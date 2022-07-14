@@ -80,7 +80,7 @@ class ApparelController extends Controller
             } else {
                 $apparels = DB::table('apparels')->orderBy('created_at', 'asc')->paginate('20');
             }
-            return view('apparels.index', compact('apparels','cheapest_apparel','expensive_apparel'));
+            return view('apparels.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
         } else {
             return redirect('login');
         }
@@ -285,11 +285,15 @@ class ApparelController extends Controller
         $expenditures = Dashboard::sum(DB::raw('purchasePrice * quantity'));
         $gross_sales = Dashboard::sum(DB::raw('retailPrice * quantity'));
         $profit = $gross_sales - $expenditures;
+        $curr_gross_sales = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('item_price * item_qty'));
+
+
+
+
         //orders
         $pending_orders = DB::table('carts')->where('item_status', '=', 'Pending')->count();
         $for_delivery_orders = DB::table('carts')->where('item_status', '=', 'For delivery')->count();
         $completed_orders = DB::table('carts')->where('item_status', '=', 'Completed')->count();
-
         return view('dashboards.index', compact(
             'users',
             'verified_users',
@@ -308,6 +312,13 @@ class ApparelController extends Controller
             'tee',
             'tiedye',
             'top',
+            'pending_orders',
+            'for_delivery_orders',
+            'completed_orders',
+            'expenditures',
+            'gross_sales',
+            'profit',
+            'curr_gross_sales'
         ));
     }
 }

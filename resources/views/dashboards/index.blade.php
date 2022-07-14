@@ -100,34 +100,92 @@
                         </div>
                     </div>
                 </div>
+                <!-- APPARELS BY CATEGORY -->
                 <h4 class="mt-5">Apparels by Category</h4>
                 <div class="progress mt-2 mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$bodycon}}" aria-valuemin="0" aria-valuemax="{{$bodycon}}" style="width: {{$bodycon}}%">{{$bodycon}} bodycon</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$bodycon}}" aria-valuemin="0" aria-valuemax="{{$bodycon}}" style="width: {{$bodycon+5}}%">{{$bodycon}} Bodycon</div>
                 </div>
                 <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$cami}}" aria-valuemin="0" aria-valuemax="{{$cami}}" style="width: {{$cami}}%">{{$cami}} cami</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$cami}}" aria-valuemin="0" aria-valuemax="{{$cami}}" style="width: {{$cami+5}}%">{{$cami}} Cami</div>
                 </div>
                 <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$graphic}}" aria-valuemin="0" aria-valuemax="{{$graphic}}" style="width: {{$graphic}}%">{{$graphic}} graphic</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$graphic}}" aria-valuemin="0" aria-valuemax="{{$graphic}}" style="width: {{$graphic+5}}%">{{$graphic}} Graphic</div>
                 </div>
                 <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$polo}}" aria-valuemin="0" aria-valuemax="{{$polo}}" style="width: {{$polo}}%">{{$polo}} polo</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$polo}}" aria-valuemin="0" aria-valuemax="{{$polo}}" style="width: {{$polo+5}}%">{{$polo}} Polo</div>
                 </div>
                 <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$romper}}" aria-valuemin="0" aria-valuemax="{{$romper}}" style="width: {{$romper}}%">{{$romper}} romper</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$romper}}" aria-valuemin="0" aria-valuemax="{{$romper}}" style="width: {{$romper+5}}%">{{$romper}} Romper</div>
                 </div>
                 <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$shirt}}" aria-valuemin="0" aria-valuemax="{{$shirt}}" style="width: {{$shirt}}%">{{$shirt}} shirt</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$shirt}}" aria-valuemin="0" aria-valuemax="{{$shirt}}" style="width: {{$shirt+5}}%">{{$shirt}} Shirt</div>
                 </div>
                 <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$tee}}" aria-valuemin="0" aria-valuemax="{{$tee}}" style="width: {{$tee}}%">{{$tee}} tee</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$tee}}" aria-valuemin="0" aria-valuemax="{{$tee}}" style="width: {{$tee+5}}%">{{$tee}} Tee</div>
                 </div>
                 <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$tiedye}}" aria-valuemin="0" aria-valuemax="{{$tiedye}}" style="width: {{$tiedye}}%">{{$tiedye}} tiedye</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$tiedye}}" aria-valuemin="0" aria-valuemax="{{$tiedye}}" style="width: {{$tiedye+5}}%">{{$tiedye}} Tiedye</div>
                 </div>
                 <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$top}}" aria-valuemin="0" aria-valuemax="{{$top}}" style="width: {{$top}}%">{{$top}} top</div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$top}}" aria-valuemin="0" aria-valuemax="{{$top}}" style="width: {{$top+5}}%">{{$top}} Top</div>
                 </div>
+                <!-- SHIPPING INFORMATION -->
+
+                <h4 class="mt-5">Shipping Information</h4>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h4 class="card-title">{{$pending_orders}}</h4>
+                            <p class="card-text">pending orders</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h4 class="card-title">{{$for_delivery_orders}}</h4>
+                            <p class="card-text">for delivery</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h4 class="card-title">{{$completed_orders}}</h4>
+                            <p class="card-text">orders completed</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- SALES INFORMATION -->
+                <h4 class="mt-5">Sales Information</h4>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h4 class="card-title">P{{number_format($expenditures,2)}}</h4>
+                            <p class="card-text">expenditure</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h4 class="card-title">P{{number_format($gross_sales,2)}}</h4>
+                            <p class="card-text">target gross sales</p>
+                            <h4 class="card-title">P{{number_format($curr_gross_sales,2)}}</h4>
+                            <p class="card-text">current gross sales</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h4 class="card-title">P{{number_format($profit,2)}}</h4>
+                            <p class="card-text">target profit</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Apparel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Dashboard;
 
-class ApparelSeeder extends Seeder
+class DashboardSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class ApparelSeeder extends Seeder
      */
     public function run()
     {
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Solid Ruffle Hem Tee',
             'sku' => '15975328',
             'quantity' => '50',
@@ -27,7 +27,7 @@ class ApparelSeeder extends Seeder
             'image' => 'SolidRuffleHemTee.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Geo Print Twist-Hem Crop Tee',
             'sku' => '95175382',
             'quantity' => '50',
@@ -39,7 +39,7 @@ class ApparelSeeder extends Seeder
             'image' => 'GeoPrintTwist-HemCropTee.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'V-neck Petal Sleeve Tunic Dress',
             'sku' => '96385214',
             'quantity' => '50',
@@ -51,7 +51,7 @@ class ApparelSeeder extends Seeder
             'image' => 'V-neckPetalSleeveTunicDress.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Solid Butterfly Sleeve Belted Tunic Dress',
             'sku' => '14785236',
             'quantity' => '50',
@@ -63,7 +63,7 @@ class ApparelSeeder extends Seeder
             'image' => 'SolidButterflySleeveBeltedTunicDress.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Solid Laser Cut Scalloped Top',
             'sku' => '28517493',
             'quantity' => '50',
@@ -75,7 +75,7 @@ class ApparelSeeder extends Seeder
             'image' => 'SolidLaserCutScallopedTop.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Polka Dot Round Neck Blouse',
             'sku' => '82517436',
             'quantity' => '50',
@@ -87,7 +87,7 @@ class ApparelSeeder extends Seeder
             'image' => 'PolkaDotRoundNeckBlouse.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Ruched Puff Sleeve Two Tone Top',
             'sku' => '24684655',
             'quantity' => '50',
@@ -99,7 +99,7 @@ class ApparelSeeder extends Seeder
             'image' => 'RuchedPuffSleeveTwoToneTop.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Frenchy Frill Trim Schiffy Cami Top',
             'sku' => '86415937',
             'quantity' => '50',
@@ -111,7 +111,7 @@ class ApparelSeeder extends Seeder
             'image' => 'FrenchyFrillTrimSchiffyCamiTop.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Mandala Print Ruffle Trim Cami Top',
             'sku' => '15975379',
             'quantity' => '50',
@@ -123,7 +123,7 @@ class ApparelSeeder extends Seeder
             'image' => 'MandalaPrintRuffleTrimCamiTop.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Floral Print Tie Shoulder Cami Top',
             'sku' => '52851739',
             'quantity' => '50',
@@ -135,7 +135,7 @@ class ApparelSeeder extends Seeder
             'image' => 'FloralPrintTieShoulderCamiTop.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Motorcycle And Letter Graphic Tee',
             'sku' => '89654236',
             'quantity' => '50',
@@ -147,7 +147,7 @@ class ApparelSeeder extends Seeder
             'image' => 'motorcycletee.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Tie Back Off Shoulder Lettuce Trim Top',
             'sku' => '89654237',
             'quantity' => '20',
@@ -160,7 +160,7 @@ class ApparelSeeder extends Seeder
         ]);
 
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Single Breasted Notched Collar Tee',
             'sku' => '89654238',
             'quantity' => '30',
@@ -172,7 +172,7 @@ class ApparelSeeder extends Seeder
             'image' => 'notchedcollartee.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Plaid Crop Blouse & Split Detail Skirt Set',
             'sku' => '89654239',
             'quantity' => '20',
@@ -184,7 +184,7 @@ class ApparelSeeder extends Seeder
             'image' => 'plaidset.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Button Placket Ruched Front Rib-knit Solid Romper',
             'sku' => '89654240',
             'quantity' => '25',
@@ -196,7 +196,7 @@ class ApparelSeeder extends Seeder
             'image' => 'rutchedknotromper.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Tie Hem Tie Dye Tee',
             'sku' => '89654241',
             'quantity' => '10',
@@ -208,7 +208,7 @@ class ApparelSeeder extends Seeder
             'image' => 'hemteetiedye.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Press Button Half Placket Tee',
             'sku' => '89654242',
             'quantity' => '15',
@@ -220,7 +220,7 @@ class ApparelSeeder extends Seeder
             'image' => 'buttontee.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Button Front Textured Shirt Romper',
             'sku' => '89654243',
             'quantity' => '10',
@@ -232,7 +232,7 @@ class ApparelSeeder extends Seeder
             'image' => 'buttonfrontromper.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Dopamine Dressing Butterfly Detail Fluffy Crop Top',
             'sku' => '89654243',
             'quantity' => '10',
@@ -244,7 +244,7 @@ class ApparelSeeder extends Seeder
             'image' => 'butterflycroptop.jpg'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Letter Graphic Contrast Collar Tee & Plaid Skirt Set',
             'sku' => '89654245',
             'quantity' => '5',
@@ -255,8 +255,7 @@ class ApparelSeeder extends Seeder
             'color' => 'Black and White',
             'image' => 'laset.jpg'
         ]);
-
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Long Sleeve',
             'sku' => '83578352',
             'quantity' => '55',
@@ -268,7 +267,7 @@ class ApparelSeeder extends Seeder
             'image' => 'bodycon-brown-longsleeve.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Dress',
             'sku' => '86832476',
             'quantity' => '535',
@@ -280,7 +279,7 @@ class ApparelSeeder extends Seeder
             'image' => 'bodycon-black-shirt.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Puff Shortsleeve',
             'sku' => '87833646',
             'quantity' => '457',
@@ -292,7 +291,7 @@ class ApparelSeeder extends Seeder
             'image' => 'bodycon-dark-puffsleeveoff.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Dress Maxi',
             'sku' => '86783452',
             'quantity' => '489',
@@ -304,7 +303,7 @@ class ApparelSeeder extends Seeder
             'image' => 'bodycon-lavender-dressmaxi.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Puff Sleeve Off',
             'sku' => '86415612',
             'quantity' => '489',
@@ -316,7 +315,7 @@ class ApparelSeeder extends Seeder
             'image' => 'bodycon-pink-puffsleeveoff.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Bodychain Belt',
             'sku' => '83246632',
             'quantity' => '489',
@@ -328,7 +327,7 @@ class ApparelSeeder extends Seeder
             'image' => 'boho-whitegold-bodychainbohobelt.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Trendy Tee',
             'sku' => '80026978',
             'quantity' => '489',
@@ -340,7 +339,7 @@ class ApparelSeeder extends Seeder
             'image' => 'coordinates-brown-trendytee.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Oversized Temperament Casual',
             'sku' => '88429042',
             'quantity' => '129',
@@ -352,7 +351,7 @@ class ApparelSeeder extends Seeder
             'image' => 'coordinates-cyan-oversizedtemperamentcasual.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Madison Vintage',
             'sku' => '81234678',
             'quantity' => '345',
@@ -364,7 +363,7 @@ class ApparelSeeder extends Seeder
             'image' => 'coordinates-R_W-madisonvintage.png'
         ]);
 
-        Apparel::create([
+        Dashboard::create([
             'name' => 'Madison Vintage',
             'sku' => '84568789',
             'quantity' => '328',
