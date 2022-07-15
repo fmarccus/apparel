@@ -284,13 +284,21 @@ class ApparelController extends Controller
         //expenses / sales
         $expenditures = Dashboard::sum(DB::raw('purchasePrice * quantity'));
         $target_gross_sales = Dashboard::sum(DB::raw('retailPrice * quantity'));
-        $profit = $target_gross_sales - $expenditures;
+        $target_profit = $target_gross_sales - $expenditures;
         $curr_gross_sales = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('item_price * item_qty'));
+        $diff_gross_sales = $target_gross_sales - $curr_gross_sales;
         $curr_profit = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('item_price - orig_price'));
+        $diff_profit = $target_profit - $curr_profit;
         //orders
         $pending_orders = DB::table('carts')->where('item_status', '=', 'Pending')->count();
         $for_delivery_orders = DB::table('carts')->where('item_status', '=', 'For delivery')->count();
         $completed_orders = DB::table('carts')->where('item_status', '=', 'Completed')->count();
+        //apparel statistics
+        $item_status_array = ["Pending", "For delivery", "Completed"];
+        $most_sold_apparels = DB::table('carts')->orderByDesc('item_qty')->where('item_status', '=', 'Completed')->limit(10)->get();
+        $most_carted_apparels = DB::table('carts')->orderByDesc('item_qty')->whereIn('item_status', $item_status_array)->limit(10)->get();
+        $least_sold_apparels = DB::table('carts')->orderBy('item_qty')->where('item_status', '=', 'Completed')->limit(10)->get();
+
         return view('dashboards.index', compact(
             'users',
             'verified_users',
@@ -314,9 +322,14 @@ class ApparelController extends Controller
             'completed_orders',
             'expenditures',
             'target_gross_sales',
-            'profit',
+            'target_profit',
             'curr_gross_sales',
-            'curr_profit'
+            'curr_profit',
+            'diff_gross_sales',
+            'diff_profit',
+            'most_sold_apparels',
+            'most_carted_apparels',
+            'least_sold_apparels'
         ));
     }
 }

@@ -169,10 +169,12 @@
                 <div class="col-sm-4">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
-                            <h4 class="card-title">P{{number_format($gross_sales,2)}}</h4>
+                            <h4 class="card-title">P{{number_format($target_gross_sales,2)}}</h4>
                             <p class="card-text">target gross sales</p>
-                            <h4 class="card-title">P{{number_format($curr_gross_sales,2)}}</h4>
+                            <h4 class="card-title">P{{number_format($curr_gross_sales,2)}} <small class="text-success">({{number_format($curr_gross_sales/$target_gross_sales,5)}}%)</small></h4>
                             <p class="card-text">current gross sales</p>
+                            <h4 class="card-title">P{{number_format($diff_gross_sales,2)}} <small class="text-danger">({{(1 - number_format($curr_gross_sales/$target_gross_sales,5))*100}}%)</small></h4>
+                            <p class="card-text">remaining to reach target gross sales</p>
 
                         </div>
                     </div>
@@ -180,14 +182,52 @@
                 <div class="col-sm-4">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
-                            <h4 class="card-title">P{{number_format($profit,2)}}</h4>
+                            <h4 class="card-title">P{{number_format($target_profit,2)}}</h4>
                             <p class="card-text">target profit</p>
-                            <h4 class="card-title">P{{number_format($curr_profit,2)}}</h4>
+                            <h4 class="card-title">P{{number_format($curr_profit,2)}} <small class="text-success">({{number_format($curr_profit/$target_profit,5)}}%)</small></h4>
                             <p class="card-text">current profit</p>
+                            <h4 class="card-title">P{{number_format($diff_profit,2)}} <small class="text-danger">({{(1 - number_format($curr_profit/$target_profit,5))*100}}%)</small></h4>
+                            <p class="card-text">remaining to reach target profit</p>
                         </div>
                     </div>
                 </div>
-
+                <h4 class="mt-5">Apparel Statistics</h4>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Most sold apparels</h5>
+                            <ul class="list-group list-group-flush">
+                                @foreach($most_sold_apparels as $most_sold_apparel)
+                                <li class="list-group-item"> {{$most_sold_apparel->item_name}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Most carted apparels</h5>
+                            <ul class="list-group list-group-flush">
+                                @foreach($most_carted_apparels as $most_carted_apparel)
+                                <li class="list-group-item"> {{$most_carted_apparel->item_name}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Least sold apparels</h5>
+                            <ul class="list-group list-group-flush">
+                                @foreach($least_sold_apparels as $least_sold_apparel)
+                                <li class="list-group-item"> {{$least_sold_apparel->item_name}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
