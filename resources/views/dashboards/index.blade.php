@@ -182,6 +182,8 @@
                         <div class="card-body">
                             <h4 class="card-title">P{{number_format($profit,2)}}</h4>
                             <p class="card-text">target profit</p>
+                            <h4 class="card-title">P{{number_format($curr_profit,2)}}</h4>
+                            <p class="card-text">current profit</p>
                         </div>
                     </div>
                 </div>

@@ -283,13 +283,10 @@ class ApparelController extends Controller
         $top = DB::table('dashboards')->where('type', '=', 'Top')->count();
         //expenses / sales
         $expenditures = Dashboard::sum(DB::raw('purchasePrice * quantity'));
-        $gross_sales = Dashboard::sum(DB::raw('retailPrice * quantity'));
-        $profit = $gross_sales - $expenditures;
+        $target_gross_sales = Dashboard::sum(DB::raw('retailPrice * quantity'));
+        $profit = $target_gross_sales - $expenditures;
         $curr_gross_sales = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('item_price * item_qty'));
-
-
-
-
+        $curr_profit = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('item_price - orig_price'));
         //orders
         $pending_orders = DB::table('carts')->where('item_status', '=', 'Pending')->count();
         $for_delivery_orders = DB::table('carts')->where('item_status', '=', 'For delivery')->count();
@@ -316,9 +313,10 @@ class ApparelController extends Controller
             'for_delivery_orders',
             'completed_orders',
             'expenditures',
-            'gross_sales',
+            'target_gross_sales',
             'profit',
-            'curr_gross_sales'
+            'curr_gross_sales',
+            'curr_profit'
         ));
     }
 }
