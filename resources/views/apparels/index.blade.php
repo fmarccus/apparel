@@ -107,7 +107,7 @@
 
                             <div class="card rounded-0" style="width: 15rem; height:25rem;">
                                 <div class="overflow-hidden">
-                                    <a href="{{route('apparel.edit', $apparel->id)}}" title="Click to show or update"><img class="img-thumbnail" src="{{asset('images')}}/{{$apparel->image}}" style="width:14.5rem; height:16rem; margin:2px 2px 2px 2px;" alt=""></a>
+                                    <a href="{{route('apparel.edit', $apparel->id)}}" title="Click to show or update"><img class="" src="{{asset('images')}}/{{$apparel->image}}" style="width:14.5rem; height:16rem; margin:2px 2px 2px 2px;" alt=""></a>
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title text-center mb-3" style="font-size:16px;">

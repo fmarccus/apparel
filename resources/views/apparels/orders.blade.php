@@ -53,7 +53,7 @@
                                 <td>{{$order->user_id}}</td>
                                 <td>{{$order->item_id}}</td>
                                 <td>{{$order->item_name}}</td>
-                                <td><img class="img-thumbnail mx-auto" src="{{asset('images')}}/{{$order->item_image}}" style="width:6rem; height:8rem; margin:2px 2px 2px 2px;" alt=""></td>
+                                <td><img class="img-thumbnail mx-auto" src="{{asset('images')}}/{{$order->item_image}}" style="width:8rem; height:10rem; margin:2px 2px 2px 2px;" alt=""></td>
                                 <td> @if($order->item_status == "Pending")
                                     <span class="badge rounded-pill bg-warning">{{$order->item_status}}</span>
                                     @elseif($order->item_status == "For delivery")

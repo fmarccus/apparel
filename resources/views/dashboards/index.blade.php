@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <!-- APPARELS BY CATEGORY -->
-                <h4 class="mt-5">Apparels by Category</h4>
+                <h4 class="mt-5">Unique Apparels by Category</h4>
                 <div class="progress mt-2 mb-2">
                     <div class="progress-bar" role="progressbar" aria-valuenow="{{$bodycon}}" aria-valuemin="0" aria-valuemax="{{$bodycon}}" style="width: {{$bodycon+5}}%">{{$bodycon}} Bodycon</div>
                 </div>

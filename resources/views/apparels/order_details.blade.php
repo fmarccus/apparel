@@ -19,15 +19,15 @@
                 </script>
                 @else
                 @endif
-                <div class="col-sm-7">
+                <div class="col-sm-9">
                     <div class="card rounded-0 border-white">
 
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-3">
-                                    <img class="img-thumbnail mx-auto" src="{{asset('images')}}/{{$order->item_image}}" style="width:6rem; height:8rem; margin:2px 2px 2px 2px;" alt="">
+                                <div class="col-sm-4">
+                                    <img class="img-thumbnail mx-auto" src="{{asset('images')}}/{{$order->item_image}}" style="width:24rem; height:24rem; margin:2px 2px 2px 2px;" alt="">
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-8">
                                     <table class="table table-bordered table-striped">
 
                                         <tbody>

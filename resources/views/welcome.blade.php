@@ -9,8 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Italianno&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 </head>
 
@@ -22,12 +22,12 @@
         <div class="relative max-w-screen-xl px-4 py-32 mx-auto lg:h-screen lg:items-center lg:flex">
             <div class="max-w-xl text-center sm:text-left">
 
-                <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-rose-200 to-rose-700 bg-clip-text text-transparent" style="font-family: 'DM Serif Display', serif; letter-spacing: 10px; font-size:10rem;">RYE</h1>
-                <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-rose-200 to-rose-700 bg-clip-text text-transparent" style="font-family: 'Allura', cursive; margin-top:-2.9rem; letter-spacing:1px;" >apparels</h1>
+                <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-amber-300 to-amber-800 bg-clip-text text-transparent" style="font-family: 'DM Serif Display', serif; letter-spacing: 10px; font-size:10rem;">RYE</h1>
+                <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-amber-200 to-amber-700 bg-clip-text text-transparent" style="font-family: 'Allura', cursive; margin-top:-2.9rem; letter-spacing:1px;">Apparels</h1>
 
 
-                <p class="p-2 mt-16 font-bold bg-gradient-to-tl from-zinc-600 to-amber-800 bg-clip-text text-transparent max-w-lg sm:leading-relaxed sm:text-2xl">
-                Fashion as unique as you are.
+                <p class="p-2 mt-16 font-bold bg-gradient-to-tl from-zinc-600 to-amber-800 bg-clip-text text-transparent max-w-lg sm:leading-relaxed sm:text-2xl" style="font-family: 'DM Serif Display', serif; letter-spacing: 10px; font-size:2rem;">
+                    Fashion as unique as you are.
                 </p>
 
                 <div class="p-2 flex flex-wrap gap-4 mt-8 text-center">
@@ -65,6 +65,6 @@
         background-size: cover;
         width: 100%;
         object-fit: cover;
-        
+
     }
 </style>

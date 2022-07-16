@@ -1,3 +1,8 @@
+<style>
+    ol li {
+        list-style: decimal;
+    }
+</style>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -53,9 +58,11 @@
                                         <input type="hidden" name="user_id" value="{{Crypt::encrypt($user_id)}}">
                                         <input type="hidden" name="item_id" value="{{Crypt::encrypt($apparel->id)}}">
                                         <input type="hidden" name="item_name" value="{{Crypt::encrypt($apparel->name)}}">
+                                        <input type="hidden" name="item_type" value="{{Crypt::encrypt($apparel->type)}}">
                                         <input type="hidden" name="orig_price" value="{{Crypt::encrypt($apparel->purchasePrice)}}">
                                         <input type="hidden" name="item_price" value="{{Crypt::encrypt($apparel->retailPrice)}}">
                                         <input type="hidden" name="item_image" value="{{Crypt::encrypt($apparel->image)}}">
+
 
                                     </div>
                                 </div>
@@ -67,23 +74,59 @@
                                     <!-- Modal -->
                                     <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title fw-bold">Size Guide</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
+                                            <div class="modal-content rounded-0">
                                                 <div class="modal-body">
-                                                    Content here
+                                                    <p class="text-center fw-bolder mt-5 mb-5">Size Guide</p>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered" style="font-size:12px">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Size</th>
+                                                                    <th>Sleeve Length</th>
+                                                                    <th>Top Length</th>
+                                                                    <th>Bust</th>
+                                                                    <th>Waist Size</th>
+                                                                    <th>Hip Size</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>S</td>
+                                                                    <td>24</td>
+                                                                    <td>72</td>
+                                                                    <td>72</td>
+                                                                    <td>62-94</td>
+                                                                    <td>83</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>M</td>
+                                                                    <td>25.2</td>
+                                                                    <td>74</td>
+                                                                    <td>76</td>
+                                                                    <td>66-98</td>
+                                                                    <td>87</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>L</td>
+                                                                    <td>26.4</td>
+                                                                    <td>76</td>
+                                                                    <td>81</td>
+                                                                    <td>71-103</td>
+                                                                    <td>92</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <hr>
+                                                    <small class="text-muted" style="font-size:11px">*Data obtained was manually obtained from measuring the product, it may be off 1-2CM.</small>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-3 d-grid">
-                                    <button type="submit" class="btn btn-dark btn-lg text-uppercase fw-bolder rounded-0">Add to Cart</button>
+                                    <button type="submit" class="btn btn-dark text-uppercase rounded-0" style="font-size:1.2rem;">Add to Cart</button>
                                 </div>
                             </form>
                         </div>
@@ -93,21 +136,33 @@
                             <!-- Button trigger modal -->
                             <a type="button" class="text-dark fw-bold text-decoration-none text-sm mt-3" data-bs-toggle="modal" data-bs-target="#shipping">
                                 <i class="fa-solid fa-truck me-2"></i>Free Shipping <br>
-                                <small class="text-muted">Estimated delivery on</small>
+                                <small class="text-muted">Learn More</small>
                             </a>
                             <!-- Modal -->
                             <div class="modal fade" id="shipping" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title fw-bold">Shipping Information</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                                    <div class="modal-content rounded-0">
                                         <div class="modal-body">
-                                            Body
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                            <p class="fw-bolder mt-5 text-center">Shipping Info</p>
+                                            <hr>
+                                            <small class="text-muted mb-5">Shipping to: Philippines</small><br><br>
+                                            <small class="text-success text-uppercase mb-5">Free Standard Shipping</small><br><br>
+                                            <table class="table table-bordered table-striped text-center" style="font-size:12px">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Shipping Method</th>
+                                                        <th>Shipping Time</th>
+                                                        <th>Costs</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-uppercase">Standard Shipping</td>
+                                                        <td>Estimated to be delivered on</td>
+                                                        <td class="p-5">Free Shipping Sitewide</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -121,17 +176,24 @@
                             <!-- Modal -->
                             <div class="modal fade" id="cod" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title fw-bold">COD Policy</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                                    <div class="modal-content rounded-0">
                                         <div class="modal-body">
-                                            COD Policy
+                                            <p class="fw-bolder text-center mt-5">COD Policy</p>
+                                            <hr>
+                                            <small class="text-muted">The subtotal of the order shall not exceed 10500 PHP</small>
+                                            <br><br>
+                                            <small class="text-muted"> COD fee is free for COD orders.</small>
+                                            <br><br>
+                                            <small class="text-muted"> We do not support opening the package for inspection.</small>
+                                            <br><br>
+                                            <small class="text-dark"> Cash on delivery is not supported in these situations:</small>
+                                            <ol class="text-muted" style="font-size:12px">
+                                                <li>The selected city does not support COD service at present.</li>
+                                                <li>Incorrect phone number format</li>
+                                                <li>According to your historical order records, your COD service has been suspended</li>
+                                            </ol>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -144,17 +206,14 @@
                             <!-- Modal -->
                             <div class="modal fade" id="return" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title fw-bold">Return Policy</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                                    <div class="modal-content rounded-0">
+
                                         <div class="modal-body">
-                                            Return Policy
+                                            <p class="fw-bolder text-center mt-5">COD Policy</p>
+                                            <hr>
+                                            <small class="text-danger">Items in this category are not able to be returned or exchanged, please understand.</small>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -193,12 +252,12 @@
             </div>
 
             <div class="row mt-5">
-                <h4 class="fw-bold mb-3">Customers Also Viewed</h4>
+                <h3 class="fw-bold mb-3">Customers Also Viewed</h3>
                 @foreach($related_apparels as $related_apparel)
                 <div class="col-sm-3 mb-2 d-flex justify-content-center">
                     <div class="card rounded-0 border-white" style="width: 15rem; height:22rem;">
                         <div class="overflow-hidden">
-                            <a href="{{route('shop.addtocart', [$related_apparel->id, $related_apparel->type])}}"><img class="img-thumbnail" src="{{asset('images')}}/{{$related_apparel->image}}" style="width:14.5rem; height:16rem; margin:2px 2px 2px 2px;" alt="{{$apparel->name}}"></a>
+                            <a href="{{route('shop.addtocart', [$related_apparel->id, $related_apparel->type])}}"><img class="" src="{{asset('images')}}/{{$related_apparel->image}}" style="width:14.5rem; height:16rem; margin:2px 2px 2px 2px;" alt="{{$apparel->name}}"></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-center mb-3" style="font-size:16px;">{{ucwords($related_apparel->name)}}</h5>

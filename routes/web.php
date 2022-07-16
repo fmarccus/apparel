@@ -47,6 +47,7 @@ Route::get('apparels/dashboard', [ApparelController::class, 'basic_data'])->name
 Route::get('users', [ApparelController::class, 'users'])->name('apparel.users');
 //CLIENT SIDE
 Route::get('shop/apparels', [CartController::class, 'index'])->name('shop.index');
+Route::get('shop/completed_orders', [CartController::class, 'completed_orders'])->name('shop.completed_orders');
 Route::get('shop/sort_type', [CartController::class, 'sort_type'])->name('shop.sort_type');
 Route::get('shop/sort_price', [CartController::class, 'sort_price'])->name('shop.sort_price');
 Route::get('cart', [CartController::class, 'cart'])->name('shop.cart');

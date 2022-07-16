@@ -247,6 +247,8 @@ class ApparelController extends Controller
             } elseif ($request->item_status == "Completed") {
                 //decrease item in inventory
                 DB::table('apparels')->where('id', $apparel_id)->decrement('quantity', $apparel_item_qty);
+                DB::table('dashboards')->where('id', $apparel_id)->decrement('quantity', $apparel_item_qty);
+
                 // DB::table('carts')
                 $order->save();
                 return back()->with('updated', '');

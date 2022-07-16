@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->string('item_id');
             $table->string('item_name');
+            $table->string('item_type');
             $table->string('item_image');
             $table->string('item_size');
             $table->double('orig_price');

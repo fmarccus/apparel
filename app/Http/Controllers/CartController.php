@@ -60,6 +60,17 @@ class CartController extends Controller
             return redirect('login');
         }
     }
+    public function completed_orders()
+    {
+        if (Auth::user()->userType = 1 && Auth::user()->email_verified_at != NULL) {
+            $user_id = Auth::user()->id;
+            $completed_orders = DB::table('carts')
+                ->where('user_id', $user_id)->where('item_status', 'Completed')->get();
+            return view('shops.completed_orders', compact('completed_orders'));
+        } else {
+            return redirect('login');
+        }
+    }
     public function cart()
     {
         if (Auth::user()->userType = 1 && Auth::user()->email_verified_at != NULL) {
@@ -68,7 +79,7 @@ class CartController extends Controller
             $total_amount = DB::table('carts')->where('user_id', '=', $user_id)
                 ->whereIn('item_status', $item_status_array)
                 ->sum('item_total');
-            $items = Cart::where('user_id', $user_id)->get();
+            $items = Cart::where('user_id', $user_id)->whereIn('item_status', $item_status_array)->get();
             return view('shops.cart', compact('items', 'total_amount'));
         } else {
             return redirect('login');
@@ -79,9 +90,8 @@ class CartController extends Controller
         if (Auth::user()->userType == 1 && Auth::user()->email_verified_at != NULL) {
             $apparel = Apparel::find($id);
             $user_id = Auth::user()->id;
-            $related_apparels = Apparel::where('type', $type)->get();
+            $related_apparels = Apparel::inRandomOrder()->limit(10)->where('type', $type)->get();
             return view('shops.addtocart', compact('apparel', 'related_apparels', 'user_id'));
-            // dd($related_apparels);
         } else {
             return redirect('login');
         }
@@ -107,6 +117,7 @@ class CartController extends Controller
             $cart->user_id = Crypt::decrypt($request->user_id);
             $cart->item_id =  Crypt::decrypt($request->item_id);
             $cart->item_name = Crypt::decrypt($request->item_name);
+            $cart->item_type = Crypt::decrypt($request->item_type);
             $cart->item_image = Crypt::decrypt($request->item_image);
             $cart->item_size = $request->item_size;
             $cart->orig_price = Crypt::decrypt($request->orig_price);
@@ -120,12 +131,3 @@ class CartController extends Controller
         }
     }
 }
-
-
-
-// if (Auth::user()->userType = "user" && Auth::user()->email_verified_at != NULL)
-// {
-
-// } else {
-//     return redirect('login');
-// }

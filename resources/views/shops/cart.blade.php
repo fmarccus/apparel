@@ -23,7 +23,7 @@
                             <div class="row">
                                 <a href="{{route('shop.removefromcart', $item->id)}}" onclick="return confirm('Are you sure you want to delete this item from your cart?')"><i class="text-dark fa-lg ms-2 fa-solid fa-rectangle-xmark"></i></a>
                                 <div class="col-sm-2">
-                                    <a href="/shop/apparels/addtocart/{{$item->item_id}}" title="{{$item->item_name}}">
+                                    <a href="/shop/apparels/addtocart/{{$item->item_id}}/{{$item->item_type}}" title="{{$item->item_name}}">
                                         <img class="img-thumbnail" src="{{asset('images')}}/{{$item->item_image}}" style="width:14.5rem; height:16rem; margin:2px 2px 2px 2px;" alt="">
                                     </a>
                                 </div>
