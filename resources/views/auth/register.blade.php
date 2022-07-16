@@ -15,14 +15,16 @@
 
 
     <style>
-        body {
-            background-image: url('../images/l-page.png');
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        html{
+            height: 120%;
             width: 100%;
             object-fit: cover;
+        }
+        body {
+            background-image: url('../images/rg-page.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; 
         }
     </style>
 </head>
@@ -36,8 +38,7 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <div class="card border-0" style="border-radius:25px; background: rgb(245,245,245);
-background: linear-gradient(90deg, rgba(245,245,245,1) 35%, rgba(229,229,229,1) 70%, rgba(214,211,209,1) 100%);">
+                    <div class="card border-0" style="border-radius:25px; background: rgb(245,245,245);background: linear-gradient(90deg, rgba(245,245,245,1) 35%, rgba(229,229,229,1) 70%, rgba(214,211,209,1) 100%);">
                         <div class="card-body">
                             <div class="container">
                                 <p class="mb-5" style="font-family: 'DM Serif Display', serif; font-size:2rem;">Register</p>
@@ -87,8 +88,8 @@ background: linear-gradient(90deg, rgba(245,245,245,1) 35%, rgba(229,229,229,1) 
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <a href="login" class="float-start fw-bold">I am already registered</a>
-                                        <button class="btn btn-dark float-end" type="submit">Register</button>
+                                        <p>Already have an account? <a href="login" class="fw-bold">Sign in here</a></p>
+                                        <button class="btn btn-dark float-end rounded shadow" type="submit">Register</button>
                                     </div>
                                 </form>
                             </div>

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <section class="relative">
+    <section class="relative" style="margin-left: -3.3rem;">
 
         <div class="hidden sm:block sm:inset-0 sm:absolute"></div>
 
@@ -23,7 +23,8 @@
             <div class="max-w-xl text-center sm:text-left">
 
                 <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-amber-300 to-amber-800 bg-clip-text text-transparent" style="font-family: 'DM Serif Display', serif; letter-spacing: 10px; font-size:10rem;">RYE</h1>
-                <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-amber-200 to-amber-700 bg-clip-text text-transparent" style="font-family: 'Allura', cursive; margin-top:-2.9rem; letter-spacing:1px;">Apparels</h1>
+
+                <h1 class="p-2  text-6xl sm:text-8xl bg-gradient-to-tl from-amber-200 to-amber-700 bg-clip-text text-transparent" style="font-family: 'Allura', cursive; margin-top:-2.3rem; margin-left:-2rem; letter-spacing:1px;">Apparels</h1>
 
 
                 <p class="p-2 mt-16 font-bold bg-gradient-to-tl from-zinc-600 to-amber-800 bg-clip-text text-transparent max-w-lg sm:leading-relaxed sm:text-2xl" style="font-family: 'DM Serif Display', serif; letter-spacing: 10px; font-size:2rem;">
@@ -43,7 +44,7 @@
                     </a>
                     @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="block w-full font-bold px-12 py-3 text-sm  bg-orange-200 rounded shadow text-black sm:w-auto active:bg-rose-100" href="/about">
-                        REGISTER
+                    REGISTER
                     </a>
                     @endif
                     @endauth
