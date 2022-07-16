@@ -25,7 +25,10 @@
                         {{ __('Inventory') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('apparel.orders') }}" :active="request()->routeIs('apparel.orders') || request()->routeIs('apparel.order_details')" class="text-decoration-none">
-                        {{ __('Orders') }}
+                        {{ __('Pending Orders') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{route('apparel.sales_history')}}" :active="request()->routeIs('apparel.sales_history')" class="text-decoration-none">
+                        {{ __('Sales History') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('apparel.users') }}" :active="request()->routeIs('apparel.users')" class="text-decoration-none">
                         {{ __('Manage Users') }}
@@ -39,6 +42,9 @@
                     </x-jet-nav-link>
                     <x-jet-nav-link class="text-decoration-none" href="{{ route('shop.cart') }}" :active="request()->routeIs('shop.cart')">
                         {{ __('Cart') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link class="text-decoration-none" href="{{ route('shop.completed_orders') }}" :active="request()->routeIs('shop.completed_orders')">
+                        {{ __('Completed Orders') }}
                     </x-jet-nav-link>
 
                     @endif

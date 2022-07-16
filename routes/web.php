@@ -32,6 +32,9 @@ Route::middleware([
 Route::get('orders', [ApparelController::class, 'orders'])->name('apparel.orders');
 Route::get('orders/show/{id}', [ApparelController::class, 'order_details'])->name('apparel.order_details');
 Route::post('orders/change_order_status/{id}', [ApparelController::class, 'change_order_status'])->name('apparel.change_order_status');
+//APPARELS SALES HISTORY
+Route::get('sales_history', [ApparelController::class, 'sales_history'])->name('apparel.sales_history');
+
 //APPARELS SERVER SIDE
 Route::get('apparels', [ApparelController::class, 'index'])->name('apparel.index');
 Route::get('apparels/sort_type', [ApparelController::class, 'sort_type'])->name('apparel.sort_type');

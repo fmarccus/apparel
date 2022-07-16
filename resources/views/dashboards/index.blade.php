@@ -80,7 +80,7 @@
                     <div class="card border-white rounded-0" style="height:10rem;">
                         <div class="card-body">
                             <h4 class="card-title">{{$quantity_apparels}}</h4>
-                            <p class="card-text">total apparels</p>
+                            <p class="card-text">total apparels on hand</p>
                         </div>
                     </div>
                 </div>
@@ -163,6 +163,10 @@
                         <div class="card-body">
                             <h4 class="card-title">P{{number_format($expenditures,2)}}</h4>
                             <p class="card-text">expenditure</p>
+                            <h4 class="card-title">{{number_format($apparels_sold,0)}} <small class="text-success">({{number_format($apparels_sold/$quantity_apparels,5)}}%)</small> </h4>
+                            <p class="card-text">apparels sold</p>
+                            <h4 class="card-title">{{number_format($quantity_apparels,0)}} <small class="text-danger">({{(1 - number_format($apparels_sold/$quantity_apparels,5))*100}}%)</small></h4>
+                            <p class="card-text">remaining to be sold</p>
                         </div>
                     </div>
                 </div>
@@ -198,7 +202,7 @@
                             <h5 class="card-title">Most sold apparels</h5>
                             <ul class="list-group list-group-flush">
                                 @foreach($most_sold_apparels as $most_sold_apparel)
-                                <li class="list-group-item"> {{$most_sold_apparel->item_name}}</li>
+                                <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$most_sold_apparel->item_name}} <span class="text-info fw-bold">({{$most_sold_apparel->item_qty}})</span></a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -210,7 +214,7 @@
                             <h5 class="card-title">Most carted apparels</h5>
                             <ul class="list-group list-group-flush">
                                 @foreach($most_carted_apparels as $most_carted_apparel)
-                                <li class="list-group-item"> {{$most_carted_apparel->item_name}}</li>
+                                <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$most_carted_apparel->item_name}} <span class="text-info fw-bold">({{$most_sold_apparel->item_qty}})</span></a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -222,7 +226,7 @@
                             <h5 class="card-title">Least sold apparels</h5>
                             <ul class="list-group list-group-flush">
                                 @foreach($least_sold_apparels as $least_sold_apparel)
-                                <li class="list-group-item"> {{$least_sold_apparel->item_name}}</li>
+                                <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$least_sold_apparel->item_name}} <span class="text-info fw-bold">({{$most_sold_apparel->item_qty}})</span></a></li>
                                 @endforeach
                             </ul>
                         </div>

@@ -27,7 +27,7 @@
                     <x-jet-nav-link href="{{ route('apparel.orders') }}" :active="request()->routeIs('apparel.orders') || request()->routeIs('apparel.order_details')" class="text-decoration-none">
                         {{ __('Pending Orders') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="#" class="text-decoration-none">
+                    <x-jet-nav-link href="{{route('apparel.sales_history')}}" :active="request()->routeIs('apparel.sales_history')" class="text-decoration-none">
                         {{ __('Sales History') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('apparel.users') }}" :active="request()->routeIs('apparel.users')" class="text-decoration-none">
@@ -37,7 +37,7 @@
                     @endif
 
                     @if(Auth::user()->userType == 1)
-                    <x-jet-nav-link class="text-decoration-none" href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart') ">
+                    <x-jet-nav-link class="text-decoration-none" href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart')">
                         {{ __('Apparels') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link class="text-decoration-none" href="{{ route('shop.cart') }}" :active="request()->routeIs('shop.cart')">
@@ -170,9 +170,40 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link class="text-decoration-none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                {{ __('Home') }}
+            </x-jet-responsive-nav-link>
+
+            @if(Auth::user()->userType == 0)
+            <x-jet-responsive-nav-link href="{{route('apparel.basic_data')}}" :active="request()->routeIs('apparel.basic_data')" class="text-decoration-none">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('apparel.index') }}" :active="request()->routeIs('apparel.index') || request()->routeIs('apparel.create') || request()->routeIs('apparel.edit')" class="text-decoration-none">
+                {{ __('Inventory') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('apparel.orders') }}" :active="request()->routeIs('apparel.orders') || request()->routeIs('apparel.order_details')" class="text-decoration-none">
+                {{ __('Pending Orders') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{route('apparel.sales_history')}}" :active="request()->routeIs('apparel.sales_history')" class="text-decoration-none">
+                {{ __('Sales History') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('apparel.users') }}" :active="request()->routeIs('apparel.users')" class="text-decoration-none">
+                {{ __('Manage Users') }}
+            </x-jet-responsive-nav-link>
+
+            @endif
+            @if(Auth::user()->userType == 1)
+            <x-jet-responsive-nav-link class="text-decoration-none" href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart') ">
+                {{ __('Apparels') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link class="text-decoration-none" href="{{ route('shop.cart') }}" :active="request()->routeIs('shop.cart')">
+                {{ __('Cart') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link class="text-decoration-none" href="{{ route('shop.completed_orders') }}" :active="request()->routeIs('shop.completed_orders')">
+                {{ __('Completed Orders') }}
+            </x-jet-responsive-nav-link>
+
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
@@ -192,7 +223,7 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')" class="text-decoration-none">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>
 
@@ -206,7 +237,7 @@
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
 
-                    <x-jet-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                    <x-jet-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();" class="text-decoration-none">
                         {{ __('Log Out') }}
                     </x-jet-responsive-nav-link>
                 </form>

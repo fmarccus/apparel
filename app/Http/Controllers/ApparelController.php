@@ -203,11 +203,10 @@ class ApparelController extends Controller
                     ->orWhere('user_id', 'LIKE', "%{$search}%")
                     ->orWhere('item_id', 'LIKE', "%{$search}%")
                     ->orWhere('item_name', 'LIKE', "%{$search}%")
-                    ->orWhere('item_status', 'LIKE', "%{$search}%")
                     ->orWhere('updated_at', 'LIKE', "%{$search}%")
                     ->paginate(20);
             } else {
-                $orders = DB::table('carts')->orderBy('created_at', 'asc')->paginate('20');
+                $orders = DB::table('carts')->whereNot('item_status', 'Completed')->orderBy('created_at', 'asc')->paginate('20');
             }
             return view('apparels.orders', compact('orders'));
         } else {
@@ -260,6 +259,26 @@ class ApparelController extends Controller
             return redirect('login');
         }
     }
+    //SALES HISTORY
+    public function sales_history()
+    {
+        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+            $search = request()->query('search');
+            if ($search) {
+                $orders = Cart::where('id', 'LIKE', "%{$search}%")
+                    ->orWhere('user_id', 'LIKE', "%{$search}%")
+                    ->orWhere('item_id', 'LIKE', "%{$search}%")
+                    ->orWhere('item_name', 'LIKE', "%{$search}%")
+                    ->orWhere('updated_at', 'LIKE', "%{$search}%")
+                    ->paginate(20);
+            } else {
+                $orders = DB::table('carts')->where('item_status', 'Completed')->orderBy('created_at', 'asc')->paginate('20');
+            }
+            return view('apparels.sales_history', compact('orders'));
+        } else {
+            return redirect('login');
+        }
+    }
     // SERVER SIDE DASHBOARD FOR ANALYTICS
     public function basic_data()
     {
@@ -284,12 +303,13 @@ class ApparelController extends Controller
         $tiedye = DB::table('dashboards')->where('type', '=', 'Tie dye')->count();
         $top = DB::table('dashboards')->where('type', '=', 'Top')->count();
         //expenses / sales
+        $apparels_sold = DB::table('carts')->where('item_status','Completed')->sum('item_qty');
         $expenditures = Dashboard::sum(DB::raw('purchasePrice * quantity'));
         $target_gross_sales = Dashboard::sum(DB::raw('retailPrice * quantity'));
         $target_profit = $target_gross_sales - $expenditures;
         $curr_gross_sales = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('item_price * item_qty'));
         $diff_gross_sales = $target_gross_sales - $curr_gross_sales;
-        $curr_profit = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('item_price - orig_price'));
+        $curr_profit = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('(item_total) - item_qty * orig_price'));
         $diff_profit = $target_profit - $curr_profit;
         //orders
         $pending_orders = DB::table('carts')->where('item_status', '=', 'Pending')->count();
@@ -300,7 +320,7 @@ class ApparelController extends Controller
         $most_sold_apparels = DB::table('carts')->orderByDesc('item_qty')->where('item_status', '=', 'Completed')->limit(10)->get();
         $most_carted_apparels = DB::table('carts')->orderByDesc('item_qty')->whereIn('item_status', $item_status_array)->limit(10)->get();
         $least_sold_apparels = DB::table('carts')->orderBy('item_qty')->where('item_status', '=', 'Completed')->limit(10)->get();
-
+        // dd($apparels_sold);
         return view('dashboards.index', compact(
             'users',
             'verified_users',
@@ -331,7 +351,8 @@ class ApparelController extends Controller
             'diff_profit',
             'most_sold_apparels',
             'most_carted_apparels',
-            'least_sold_apparels'
+            'least_sold_apparels',
+            'apparels_sold'
         ));
     }
 }

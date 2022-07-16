@@ -34,30 +34,31 @@
 
 
                     </div>
-                    <table class="table table-bordered table-striped bg-white">
-                        <thead>
-                            <tr>
-                                <th>User #</th>
-                                <th>User Type</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Verify Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($users as $user)
-                            <tr>
-                                <td>{{$user->id}}</td>
-                                <td>{{$user->userType}}</td>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->email_verified_at}}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <div class="mx-auto d-flex justify-content-center p-5">{{ $users->appends(['search'=>request()->query('search')])->links() }}</div>
-
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped bg-white">
+                            <thead>
+                                <tr>
+                                    <th>User #</th>
+                                    <th>User Type</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Verify Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($users as $user)
+                                <tr>
+                                    <td>{{$user->id}}</td>
+                                    <td>{{$user->userType}}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->email_verified_at}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="mx-auto d-flex justify-content-center p-5">{{ $users->appends(['search'=>request()->query('search')])->links() }}</div>
+                    </div>
                 </div>
             </div>
 

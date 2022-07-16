@@ -109,6 +109,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: 600;
   line-height: 1.2;
   color: #1a1a1a;
+  font-weight: bold;
 }
 
 h1, .h1 {
@@ -332,6 +333,7 @@ th {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
+  font-weight: 400;
 }
 
 label {
@@ -5337,6 +5339,7 @@ fieldset:disabled .btn {
   text-decoration: none;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  font-weight: 400;
 }
 
 .list-group-item.disabled, .list-group-item:disabled {

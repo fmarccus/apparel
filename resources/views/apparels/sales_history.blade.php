@@ -1,25 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pending Orders') }}
+            {{ __('Sales History') }}
         </h2>
     </x-slot>
     <section class="pt-5 pb-5">
         <div class="container">
             <div class="row justify-content-center">
-                <!-- @if(session()->has('deleted'))
-                <script>
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Apparel deleted',
-                    })
-                </script>
-                @else
-                @endif -->
                 <div class="col-sm-12">
                     <div class="d-flex mb-3">
                         <div class="p-2">
-                            <form action="{{route('apparel.orders')}}" method="get">
+                            <form action="{{route('apparel.sales_history')}}" method="get">
                                 @csrf
                                 <input type="text" class="form-control shadow-none" name="search" placeholder="Search by name, sku, type..." value="{{request()->query('search')}}">
                             </form>
@@ -43,7 +34,7 @@
                                     <th>Item ID</th>
                                     <th>Name</th>
                                     <th>Image</th>
-                                    <th>Total</th>
+                                    <th>Sales</th>
                                     <th>Status</th>
                                     <th>Last Updated</th>
                                 </tr>
@@ -51,12 +42,14 @@
                             <tbody>
                                 @foreach($orders as $order)
                                 <tr>
-                                    <td><a href="{{route('apparel.order_details', $order->id)}}">{{$order->id}}</a></td>
+                                    <td>{{$order->id}}</td>
                                     <td>{{$order->user_id}}</td>
                                     <td>{{$order->item_id}}</td>
                                     <td>{{$order->item_name}}</td>
                                     <td><img class="img-thumbnail mx-auto" src="{{asset('images')}}/{{$order->item_image}}" style="width:8rem; height:10rem; margin:2px 2px 2px 2px;" alt=""></td>
-                                    <td class="fw-bold text-danger">P{{number_format($order->item_total,2)}}</td>
+                                    <td class="text-success fw-bold">
+                                        P{{number_format($order->item_total,2)}}
+                                    </td>
                                     <td> @if($order->item_status == "Pending")
                                         <span class="badge rounded-pill bg-warning">{{$order->item_status}}</span>
                                         @elseif($order->item_status == "For delivery")
@@ -70,7 +63,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-
                         <div class="mx-auto d-flex justify-content-center p-5">{{ $orders->appends(['search'=>request()->query('search')])->links() }}</div>
                     </div>
                 </div>
