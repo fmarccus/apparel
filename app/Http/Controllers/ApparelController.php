@@ -42,7 +42,7 @@ class ApparelController extends Controller
             $cheapest_apparel = DB::table('dashboards')->min('retailPrice');
             $expensive_apparel = DB::table('dashboards')->max('retailPrice');
             $category = $request->category;
-            $apparels = Apparel::where('type', $category)
+            $apparels = Apparel::where('type', $category)->where('quantity', '>', 0)
                 ->paginate(1000);
             return view('apparels.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
         } else {
@@ -58,7 +58,7 @@ class ApparelController extends Controller
             $price = $request->price;
             // $apparels = Apparel::where('retailPrice', $price)
             //     ->paginate(1000);
-            $apparels = DB::table('apparels')->where('retailPrice', '<=', $price)->orderBy('retailPrice', 'desc')->paginate(1000);
+            $apparels = DB::table('apparels')->where('retailPrice', '<=', $price)->where('quantity', '>', 0)->orderBy('retailPrice', 'desc')->paginate(1000);
             return view('apparels.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
         } else {
             return redirect('login');
@@ -78,7 +78,7 @@ class ApparelController extends Controller
                     ->orWhere('retailPrice', 'LIKE', "%{$search}%")
                     ->paginate(20);
             } else {
-                $apparels = DB::table('apparels')->orderBy('created_at', 'asc')->paginate('20');
+                $apparels = DB::table('apparels')->where('quantity', '>', 0)->orderBy('created_at', 'asc')->paginate('20');
             }
             return view('apparels.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
         } else {
@@ -303,7 +303,7 @@ class ApparelController extends Controller
         $tiedye = DB::table('dashboards')->where('type', '=', 'Tie dye')->count();
         $top = DB::table('dashboards')->where('type', '=', 'Top')->count();
         //expenses / sales
-        $apparels_sold = DB::table('carts')->where('item_status','Completed')->sum('item_qty');
+        $apparels_sold = DB::table('carts')->where('item_status', 'Completed')->sum('item_qty');
         $expenditures = Dashboard::sum(DB::raw('purchasePrice * quantity'));
         $target_gross_sales = Dashboard::sum(DB::raw('retailPrice * quantity'));
         $target_profit = $target_gross_sales - $expenditures;

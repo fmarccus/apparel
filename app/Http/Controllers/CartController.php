@@ -19,7 +19,7 @@ class CartController extends Controller
             $cheapest_apparel = DB::table('dashboards')->min('retailPrice');
             $expensive_apparel = DB::table('dashboards')->max('retailPrice');
             $category = $request->category;
-            $apparels = Apparel::where('type', $category)
+            $apparels = Apparel::where('type', $category)->where('quantity', '>', 0)
                 ->paginate(1000);
             return view('shops.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
         } else {
@@ -34,7 +34,7 @@ class CartController extends Controller
             $price = $request->price;
             // $apparels = Apparel::where('retailPrice', $price)
             //     ->paginate(1000);
-            $apparels = DB::table('apparels')->where('retailPrice', '<=', $price)->orderBy('retailPrice', 'desc')->paginate(1000);
+            $apparels = DB::table('apparels')->where('retailPrice', '<=', $price)->where('quantity', '>', 0)->orderBy('retailPrice', 'desc')->paginate(1000);
             return view('shops.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
         } else {
             return redirect('login');
@@ -53,7 +53,7 @@ class CartController extends Controller
                     ->orWhere('retailPrice', 'LIKE', "%{$search}%")
                     ->paginate(20);
             } else {
-                $apparels = DB::table('apparels')->orderBy('created_at', 'asc')->paginate('20');
+                $apparels = DB::table('apparels')->where('quantity', '>', 0)->orderBy('created_at', 'asc')->paginate('20');
             }
             return view('shops.index', compact('apparels', 'cheapest_apparel', 'expensive_apparel'));
         } else {
