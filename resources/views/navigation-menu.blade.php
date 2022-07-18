@@ -33,6 +33,9 @@
                     <x-jet-nav-link href="{{ route('apparel.users') }}" :active="request()->routeIs('apparel.users')" class="text-decoration-none">
                         {{ __('Manage Users') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{route('messages.index')}}" :active="request()->routeIs('messages.index')" class="text-decoration-none">
+                        {{ __('Messages') }}
+                    </x-jet-nav-link>
 
                     @endif
 
@@ -133,7 +136,11 @@
                             <x-jet-dropdown-link class="text-decoration-none" href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
-
+                            @if(Auth::user()->userType == 1)
+                            <x-jet-dropdown-link href="{{ route('messages.create') }}" :active="request()->routeIs('messages.create')" class="text-decoration-none">
+                                {{ __('Contact Us') }}
+                            </x-jet-dropdown-link>
+                            @endif
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                 {{ __('API Tokens') }}
@@ -190,6 +197,9 @@
             <x-jet-responsive-nav-link href="{{ route('apparel.users') }}" :active="request()->routeIs('apparel.users')" class="text-decoration-none">
                 {{ __('Manage Users') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{route('messages.index')}}" :active="request()->routeIs('messages.index')" class="text-decoration-none">
+                {{ __('Messages') }}
+            </x-jet-responsive-nav-link>
 
             @endif
             @if(Auth::user()->userType == 1)
@@ -232,7 +242,11 @@
                     {{ __('API Tokens') }}
                 </x-jet-responsive-nav-link>
                 @endif
-
+                @if(Auth::user()->userType == 1)
+                <x-jet-responsive-nav-link href="{{ route('messages.create') }}" :active="request()->routeIs('messages.create')" class="text-decoration-none">
+                    {{ __('Contact Us') }}
+                </x-jet-responsive-nav-link>
+                @endif
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf

@@ -6,30 +6,8 @@
     </x-slot>
     <section class="pt-5 pb-5">
         <div class="container">
-            <!-- sidebar -->
-            <button class="btn btn-dark mb-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                Show Sidebar
-            </button>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Rye Apparels</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div>
-                        <!-- Message -->
-                    </div>
-                    <ul class="list-group list-group-flush" aria-labelledby="dropdownMenuButton">
-                        <li><a class="list-group-item" href="/dashboard">Home</a></li>
-                        <li><a class="list-group-item" href="/apparels/dashboard">Dashboard</a></li>
-                        <li><a class="list-group-item" href="/apparels">Inventory</a></li>
-                        <li><a class="list-group-item" href="/orders">Orders</a></li>
-                        <li><a class="list-group-item" href="/users">Manage Users</a></li>
-                    </ul>
 
-                </div>
-            </div>
-            <!-- sidebar -->
+          
             <div class="row">
                 <!-- USER DATA -->
                 <h4>User Information</h4>
@@ -132,7 +110,7 @@
                 <!-- SHIPPING INFORMATION -->
 
                 <h4 class="mt-5">Shipping Information</h4>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h4 class="card-title">{{$pending_orders}}</h4>
@@ -140,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h4 class="card-title">{{$for_delivery_orders}}</h4>
@@ -148,7 +126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h4 class="card-title">{{$completed_orders}}</h4>
@@ -158,7 +136,7 @@
                 </div>
                 <!-- SALES INFORMATION -->
                 <h4 class="mt-5">Sales Information</h4>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h4 class="card-title">P{{number_format($expenditures,2)}}</h4>
@@ -170,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h4 class="card-title">P{{number_format($target_gross_sales,2)}}</h4>
@@ -183,7 +161,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h4 class="card-title">P{{number_format($target_profit,2)}}</h4>
@@ -196,7 +174,7 @@
                     </div>
                 </div>
                 <h4 class="mt-5">Apparel Statistics</h4>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h5 class="card-title">Most sold apparels</h5>
@@ -208,7 +186,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h5 class="card-title">Most carted apparels</h5>
@@ -220,7 +198,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-2">
                     <div class="card border-white rounded-0">
                         <div class="card-body">
                             <h5 class="card-title">Least sold apparels</h5>

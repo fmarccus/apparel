@@ -147,23 +147,25 @@
                                             <hr>
                                             <small class="text-muted mb-5">Shipping to: Philippines</small><br><br>
                                             <small class="text-success text-uppercase mb-5">Free Standard Shipping</small><br><br>
-                                            <table class="table table-bordered table-striped text-center" style="font-size:12px">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Shipping Method</th>
-                                                        <th>Shipping Time</th>
-                                                        <th>Costs</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-uppercase p-5">Standard Shipping</td>
-                                                        <td class="p-5"> Estimated delivery date <strong>{{date('Y-m-d', strtotime("+5 days"))}}</strong></td>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped text-center" style="font-size:12px">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Shipping Method</th>
+                                                            <th>Shipping Time</th>
+                                                            <th>Costs</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-uppercase p-5">Standard Shipping</td>
+                                                            <td class="p-5"> Estimated delivery date <strong>{{date('Y-m-d', strtotime("+5 days"))}}</strong></td>
 
-                                                        <td class="p-5">Free Shipping Sitewide</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                            <td class="p-5">Free Shipping Sitewide</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

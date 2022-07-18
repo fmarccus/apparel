@@ -1,34 +1,77 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+<!-- route register -->
+<!DOCTYPE html>
+<html lang="en">
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            height: 90%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        body {
+            background-image: url('../images/reset.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="pb-5" style="margin-top:18rem; margin-bottom:10rem">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6">
+                            <div class="card border-0 " style="background: rgb(245,245,245);background: linear-gradient(90deg, rgba(245,245,245,1) 35%, rgba(229,229,229,1) 70%, rgba(214,211,209,1) 100%);">
+                                <div class="card-body">
+                                    <div class="container">
+                                        <p class="mb-5" style="font-family: 'DM Serif Display', serif; font-size:2rem;">Forgot your password?</p>
+                                        @if (session('status'))
+                                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            <span>
+                                                {{ session('status') }}</span>
+                                        </div>
+                                        @endif
+                                        <p>No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.</p>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <form method="POST" action="{{ route('password.email') }}">
+                                                    @csrf
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Email</label>
+                                                        <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="email">
+                                                        @error('email')
+                                                        <small id="helpId" class="form-text text-danger">{{$message}}</small>
+                                                        @enderror
+                                                    </div>
+                                                    <button class="btn btn-dark" type="submit">Email password reset link</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+</body>
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+</html>

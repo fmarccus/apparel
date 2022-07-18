@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <section class="" style="margin-top:10rem; margin-bottom:10rem">
+    <section class="pb-5" style="margin-top:10rem; margin-bottom:10rem">
         <div class="container">
 
             <div class="row">
@@ -37,7 +37,7 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <div class="card border-0" style="border-radius:25px; background: rgb(245,245,245);background: linear-gradient(90deg, rgba(245,245,245,1) 35%, rgba(229,229,229,1) 70%, rgba(214,211,209,1) 100%);">
+                    <div class="card border-0" style="background: rgb(245,245,245);background: linear-gradient(90deg, rgba(245,245,245,1) 35%, rgba(229,229,229,1) 70%, rgba(214,211,209,1) 100%);">
                         <div class="card-body">
                             <div class="container">
                                 <p class="mb-5" style="font-family: 'DM Serif Display', serif; font-size:2rem;">Login</p>

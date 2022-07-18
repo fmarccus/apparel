@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApparelController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,3 +58,7 @@ Route::get('cart', [CartController::class, 'cart'])->name('shop.cart');
 Route::post('shop/apparels/confirmitem', [CartController::class, 'confirmitem'])->name('shop.confirmitem');
 Route::get('cart/destroy/{id}', [CartController::class, 'removefromcart'])->name('shop.removefromcart');
 Route::get('shop/apparels/addtocart/{id}/{type}', [CartController::class, 'addtocart'])->name('shop.addtocart');
+//messages
+Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
+Route::get('messages/create', [MessageController::class, 'create'])->name('messages.create');
+Route::post('messages/store', [MessageController::class, 'store'])->name('messages.store');
