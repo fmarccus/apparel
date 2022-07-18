@@ -157,8 +157,9 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td class="text-uppercase">Standard Shipping</td>
-                                                        <td>Estimated to be delivered on</td>
+                                                        <td class="text-uppercase p-5">Standard Shipping</td>
+                                                        <td class="p-5"> Estimated delivery date <strong>{{date('Y-m-d', strtotime("+5 days"))}}</strong></td>
+
                                                         <td class="p-5">Free Shipping Sitewide</td>
                                                     </tr>
                                                 </tbody>
@@ -211,7 +212,7 @@
                                         <div class="modal-body">
                                             <p class="fw-bolder text-center mt-5">COD Policy</p>
                                             <hr>
-                                            <small class="text-danger">Items in this category are not able to be returned or exchanged, please understand.</small>
+                                            <small class="text-danger">Shipping and handling fee is not refundable, we assure that all products are in good condition before shipping.</small>
                                         </div>
 
                                     </div>
