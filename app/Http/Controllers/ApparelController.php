@@ -317,9 +317,9 @@ class ApparelController extends Controller
         $completed_orders = DB::table('carts')->where('item_status', '=', 'Completed')->count();
         //apparel statistics
         $item_status_array = ["Pending", "For delivery", "Completed"];
-        $most_sold_apparels = DB::table('carts')->orderByDesc('item_qty')->where('item_status', '=', 'Completed')->limit(10)->get();
-        $most_carted_apparels = DB::table('carts')->orderByDesc('item_qty')->whereIn('item_status', $item_status_array)->limit(10)->get();
-        $least_sold_apparels = DB::table('carts')->orderBy('item_qty')->where('item_status', '=', 'Completed')->limit(10)->get();
+        $most_sold_apparels = DB::table('carts')->orderByDesc('item_qty')->where('item_status', '=', 'Completed')->groupBy('item_name')->limit(10)->get();
+        $most_carted_apparels = DB::table('carts')->orderByDesc('item_qty')->whereIn('item_status', $item_status_array)->groupBy('item_name')->limit(10)->get();
+        $least_sold_apparels = DB::table('carts')->orderBy('item_qty')->where('item_status', '=', 'Completed')->groupBy('item_name')->limit(10)->get();
         // dd($apparels_sold);
         return view('dashboards.index', compact(
             'users',
