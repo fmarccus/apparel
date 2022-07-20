@@ -3,6 +3,8 @@
 use App\Http\Controllers\ApparelController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ChartJSController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,3 +64,5 @@ Route::get('shop/apparels/addtocart/{id}/{type}', [CartController::class, 'addto
 Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
 Route::get('messages/create', [MessageController::class, 'create'])->name('messages.create');
 Route::post('messages/store', [MessageController::class, 'store'])->name('messages.store');
+
+Route::get('chart', [ChartJSController::class, 'index']);
