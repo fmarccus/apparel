@@ -401,13 +401,13 @@
         datasets: [{
           label: 'Total Sales per month',
           backgroundColor: 'rgb(102, 255, 78)',
-          borderColor: 'rgb(255, 204, 209)',
+          borderColor: 'rgb(102, 255, 78)',
           data: users2,
         }]
       };
   
       const config2 = {
-        type: 'bar',
+        type: 'line',
         data: data2,
         options: {}
       };
