@@ -65,4 +65,4 @@ Route::get('messages', [MessageController::class, 'index'])->name('messages.inde
 Route::get('messages/create', [MessageController::class, 'create'])->name('messages.create');
 Route::post('messages/store', [MessageController::class, 'store'])->name('messages.store');
 
-Route::get('chart', [ChartJSController::class, 'index']);
+// Route::get('chart', [ChartJSController::class, 'index']);

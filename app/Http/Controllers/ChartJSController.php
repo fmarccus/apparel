@@ -21,6 +21,6 @@ class ChartJSController extends Controller
         $labels = $users->keys();
         $data = $users->values();
        
-        return view('chart', compact('labels', 'data'));
+        return view('dashboards.index', compact('labels', 'data'));
     }
 }

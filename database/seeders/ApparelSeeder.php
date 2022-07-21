@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Apparel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
+
 
 class ApparelSeeder extends Seeder
 {
@@ -15,8 +17,11 @@ class ApparelSeeder extends Seeder
      */
     public function run()
     {
+        $this->faker = Faker::create();
+
         Apparel::create([
             'name' => 'Solid Ruffle Hem Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '15975328',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -29,6 +34,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Geo Print Twist-Hem Crop Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '95175382',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -41,6 +47,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'V-neck Petal Sleeve Tunic Dress',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '96385214',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -53,6 +60,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Solid Butterfly Sleeve Belted Tunic Dress',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '14785236',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -65,6 +73,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Solid Laser Cut Scalloped Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '28517493',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -77,6 +86,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Polka Dot Round Neck Blouse',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '82517436',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -89,6 +99,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Ruched Puff Sleeve Two Tone Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '24684655',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -101,6 +112,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Frenchy Frill Trim Schiffy Cami Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '86415937',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -113,6 +125,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Mandala Print Ruffle Trim Cami Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '15975379',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -125,6 +138,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Floral Print Tie Shoulder Cami Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '52851739',
             'quantity' => '50',
             'purchasePrice' => '100',
@@ -137,6 +151,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Motorcycle And Letter Graphic Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654236',
             'quantity' => '50',
             'purchasePrice' => '280',
@@ -149,6 +164,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Tie Back Off Shoulder Lettuce Trim Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654237',
             'quantity' => '20',
             'purchasePrice' => '360',
@@ -162,6 +178,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Single Breasted Notched Collar Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654238',
             'quantity' => '30',
             'purchasePrice' => '350',
@@ -174,6 +191,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Plaid Crop Blouse & Split Detail Skirt Set',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654239',
             'quantity' => '20',
             'purchasePrice' => '600',
@@ -186,6 +204,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Button Placket Ruched Front Rib-knit Solid Romper',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654240',
             'quantity' => '25',
             'purchasePrice' => '450',
@@ -198,6 +217,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Tie Hem Tie Dye Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654241',
             'quantity' => '10',
             'purchasePrice' => '190',
@@ -210,6 +230,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Press Button Half Placket Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654242',
             'quantity' => '15',
             'purchasePrice' => '200',
@@ -222,6 +243,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Button Front Textured Shirt Romper',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654243',
             'quantity' => '10',
             'purchasePrice' => '500',
@@ -234,6 +256,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Dopamine Dressing Butterfly Detail Fluffy Crop Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654243',
             'quantity' => '10',
             'purchasePrice' => '150',
@@ -246,6 +269,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Letter Graphic Contrast Collar Tee & Plaid Skirt Set',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654245',
             'quantity' => '5',
             'purchasePrice' => '450',
@@ -258,6 +282,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Long Sleeve',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '83578352',
             'quantity' => '55',
             'purchasePrice' => '299',
@@ -270,6 +295,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Dress',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '86832476',
             'quantity' => '535',
             'purchasePrice' => '399',
@@ -282,6 +308,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Puff Shortsleeve',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '87833646',
             'quantity' => '25',
             'purchasePrice' => '350',
@@ -294,6 +321,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Dress Maxi',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '86783452',
             'quantity' => '30',
             'purchasePrice' => '455',
@@ -306,6 +334,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Puff Sleeve Off',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '86415612',
             'quantity' => '40',
             'purchasePrice' => '355',
@@ -318,6 +347,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Bodychain Belt',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '83246632',
             'quantity' => '60',
             'purchasePrice' => '100',
@@ -330,6 +360,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Trendy Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '80026978',
             'quantity' => '75',
             'purchasePrice' => '200',
@@ -342,6 +373,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Oversized Temperament Casual',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '88429042',
             'quantity' => '40',
             'purchasePrice' => '452',
@@ -354,6 +386,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Madison Vintage',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '81234678',
             'quantity' => '30',
             'purchasePrice' => '300',
@@ -366,6 +399,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Madison Vintage',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '84568789',
             'quantity' => '20',
             'purchasePrice' => '200',
@@ -378,6 +412,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Suspender Skirt',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '83578347',
             'quantity' => '25',
             'purchasePrice' => '545',
@@ -390,6 +425,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Chic Red Plaid Strap Dress',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '86832410',
             'quantity' => '45',
             'purchasePrice' => '560',
@@ -402,6 +438,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Cute Cape Hood',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '87833616',
             'quantity' => '25',
             'purchasePrice' => '610',
@@ -414,6 +451,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Short Top Cross Little Cute',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '86783411',
             'quantity' => '100',
             'purchasePrice' => '150',
@@ -426,6 +464,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Autumn and Winter Coral Fleece Cinnamoroll Babycinnamoroll Pajamas',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '86415601',
             'quantity' => '70',
             'purchasePrice' => '687',
@@ -438,6 +477,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Long-sleeved goddess fan backless',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '83246692',
             'quantity' => '30',
             'purchasePrice' => '565',
@@ -450,6 +490,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Summer halter sling',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '80026987',
             'quantity' => '50',
             'purchasePrice' => '136',
@@ -462,6 +503,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Casual Loose Kawaii Tshirt',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '88429033',
             'quantity' => '60',
             'purchasePrice' => '299',
@@ -474,6 +516,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Summer Casual Tshirt',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '81234694',
             'quantity' => '65',
             'purchasePrice' => '149',
@@ -486,6 +529,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Aesthetic Clothes Grunge Harajuku Casual Graphic',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '84568766',
             'quantity' => '80',
             'purchasePrice' => '183',
@@ -498,6 +542,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Graphic Korean Style Female T-shirt Harajuku Tshirt',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '34582395',
             'quantity' => '25',
             'purchasePrice' => '340',
@@ -510,6 +555,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Harajuku Gildan short sleeve',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '82387417',
             'quantity' => '35',
             'purchasePrice' => '357',
@@ -522,6 +568,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Oversize soft t-shirt',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '86573983',
             'quantity' => '45',
             'purchasePrice' => '445',
@@ -534,6 +581,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Sweetheart Neck Twist Front Dress',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654246',
             'quantity' => '10',
             'purchasePrice' => '350',
@@ -546,6 +594,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Square Neck Schiffy Dress',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654247',
             'quantity' => '8',
             'purchasePrice' => '300',
@@ -558,6 +607,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Solid Slim Cami Crop Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654248',
             'quantity' => '15',
             'purchasePrice' => '140',
@@ -570,6 +620,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Criss Cross Contrast Binding Cami Top',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654249',
             'quantity' => '15',
             'purchasePrice' => '170',
@@ -582,6 +633,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Letter Graphic Crop Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654250',
             'quantity' => '10',
             'purchasePrice' => '230',
@@ -594,6 +646,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Hat & Slogan Graphic Contrast Raglan Sleeve Crop Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654251',
             'quantity' => '20',
             'purchasePrice' => '235',
@@ -606,6 +659,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Abstract Figure Graphic Drawstring Front Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654252',
             'quantity' => '10',
             'purchasePrice' => '300',
@@ -618,6 +672,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Heart & Slogan Print Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654253',
             'quantity' => '10',
             'purchasePrice' => '310',
@@ -630,6 +685,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Cartoon Graphic Crop Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '89654254',
             'quantity' => '12',
             'purchasePrice' => '250',
@@ -642,6 +698,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Pocket Detail Solid Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '29731862',
             'quantity' => '45',
             'purchasePrice' => '129',
@@ -654,6 +711,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Dazy-Less Solid Crew Neck Crop Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '82289932',
             'quantity' => '50',
             'purchasePrice' => '123',
@@ -666,6 +724,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'DAZY Solid Scoop Neck Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '36361414',
             'quantity' => '50',
             'purchasePrice' => '129',
@@ -678,6 +737,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'DAZY Striped Print Round Neck Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '48668413',
             'quantity' => '50',
             'purchasePrice' => '149',
@@ -690,6 +750,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'DAZY Letter Patched Cut Out Rib Knit Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '82391746',
             'quantity' => '50',
             'purchasePrice' => '149',
@@ -702,6 +763,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Solid Crew Neck Basic Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '46971328',
             'quantity' => '50',
             'purchasePrice' => '109',
@@ -714,6 +776,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'DAZY Ditsy Floral Square Neck Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '64317955',
             'quantity' => '50',
             'purchasePrice' => '169',
@@ -726,6 +789,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Honeyspot Solid Puff Sleeve Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '29973316',
             'quantity' => '50',
             'purchasePrice' => '299',
@@ -738,6 +802,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'Dazy-Less Solid Seam Detail Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '82289339',
             'quantity' => '50',
             'purchasePrice' => '195',
@@ -750,6 +815,7 @@ class ApparelSeeder extends Seeder
 
         Apparel::create([
             'name' => 'DAZY Cut Out Front Tee',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month'),
             'sku' => '88775264',
             'quantity' => '50',
             'purchasePrice' => '239',

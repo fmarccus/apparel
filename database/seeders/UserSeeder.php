@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class UserSeeder extends Seeder
 {
@@ -15,6 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $this->faker = Faker::create();
         User::create([
             'name' => 'Rye Advincula',
             'email' => 'server@server.com',
@@ -22,7 +24,8 @@ class UserSeeder extends Seeder
             'address' => 'Manila City',
             'email_verified_at' => now(),
             'password' => bcrypt('ryeserver'),
-            'userType' => '0'
+            'userType' => '0',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
         ]);
         User::create([
             'name' => 'test user',
@@ -31,7 +34,8 @@ class UserSeeder extends Seeder
             'address' => 'Makati City',
             'email_verified_at' => now(),
             'password' => bcrypt('12345678'),
-            'userType' => '1'
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
         ]);
         User::create([
             'name' => 'test user 2',
@@ -40,7 +44,8 @@ class UserSeeder extends Seeder
             'address' => 'Taguig City',
             'email_verified_at' => now(),
             'password' => bcrypt('12345678'),
-            'userType' => '1'
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
         ]);
         User::create([
             'name' => 'test user 3',
@@ -49,7 +54,8 @@ class UserSeeder extends Seeder
             'address' => 'San Juan City',
             'email_verified_at' => now(),
             'password' => bcrypt('12345678'),
-            'userType' => '1'
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
         ]);
         User::create([
             'name' => 'test user 4',
@@ -58,7 +64,8 @@ class UserSeeder extends Seeder
             'address' => 'Marikina City',
             'email_verified_at' => now(),
             'password' => bcrypt('12345678'),
-            'userType' => '1'
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
         ]);
         User::create([
             'name' => 'test user 5',
@@ -67,7 +74,58 @@ class UserSeeder extends Seeder
             'address' => 'Pasig City',
             'email_verified_at' => now(),
             'password' => bcrypt('12345678'),
-            'userType' => '1'
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
+        ]);
+        User::create([
+            'name' => 'test user 6',
+            'email' => 'user6@gmail.com',
+            'contact' => '88767889',
+            'address' => 'Pasig City',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'),
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
+        ]);
+        User::create([
+            'name' => 'test user 7',
+            'email' => 'user7@gmail.com',
+            'contact' => '00987678',
+            'address' => 'Pasig City',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'),
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
+        ]);
+        User::create([
+            'name' => 'test user 8',
+            'email' => 'user8@gmail.com',
+            'contact' => '98976567',
+            'address' => 'Pasig City',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'),
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
+        ]);
+        User::create([
+            'name' => 'test user 9',
+            'email' => 'user9@gmail.com',
+            'contact' => '23465214',
+            'address' => 'Pasig City',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'),
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
+        ]);
+        User::create([
+            'name' => 'test user 10',
+            'email' => 'user10@gmail.com',
+            'contact' => '55678564',
+            'address' => 'Pasig City',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'),
+            'userType' => '1',
+            'created_at'=>$this->faker->dateTimeBetween($startDate = '-6 month',$endDate = 'now +6 month')
         ]);
     }
 }

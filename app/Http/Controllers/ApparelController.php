@@ -317,10 +317,47 @@ class ApparelController extends Controller
         $completed_orders = DB::table('carts')->where('item_status', '=', 'Completed')->count();
         //apparel statistics
         $item_status_array = ["Pending", "For delivery", "Completed"];
-        $most_sold_apparels = DB::table('carts')->orderByDesc('item_qty')->where('item_status', '=', 'Completed')->groupBy('item_name')->limit(10)->get();
-        $most_carted_apparels = DB::table('carts')->orderByDesc('item_qty')->whereIn('item_status', $item_status_array)->groupBy('item_name')->limit(10)->get();
-        $least_sold_apparels = DB::table('carts')->orderBy('item_qty')->where('item_status', '=', 'Completed')->groupBy('item_name')->limit(10)->get();
-        // dd($apparels_sold);
+        // $most_sold_apparels = DB::table('carts')->orderByDesc('item_qty')->where('item_status', '=', 'Completed')->groupBy('item_name')->limit(10)->get();
+        // $most_carted_apparels = DB::table('carts')->orderByDesc('item_qty')->whereIn('item_status', $item_status_array)->groupBy('item_name')->limit(10)->get();
+        // $least_sold_apparels = DB::table('carts')->orderBy('item_qty')->where('item_status', '=', 'Completed')->groupBy('item_name')->limit(10)->get();
+        $most_sold_apparels = DB::table('carts')->orderByDesc('item_qty')->where('item_status', '=', 'Completed')->limit(10)->get();
+        $most_carted_apparels = DB::table('carts')->orderByDesc('item_qty')->whereIn('item_status', $item_status_array)->limit(10)->get();
+        $least_sold_apparels = DB::table('carts')->orderBy('item_qty')->where('item_status', '=', 'Completed')->limit(10)->get();
+
+
+
+        //CHARTS FOR USERS
+        $users_chart = User::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("Month(created_at)"))
+            ->pluck('count', 'month_name');
+
+        $labels = $users_chart->keys();
+        $data = $users_chart->values();
+        //CHARTS FOR USERS
+
+        //CHARTS FOR APPARELS
+        $apparels_chart = Apparel::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("Month(created_at)"))
+            ->pluck('count', 'month_name');
+
+        $labels1 = $apparels_chart->keys();
+        $data1 = $apparels_chart->values();
+        //CHARTS FOR APPARELS
+
+        //CHARTS FOR SALES
+        $sales_chart = Cart::select(DB::raw("SUM(item_total) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
+            ->where('item_status', 'Completed')
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("Month(created_at)"))
+            ->pluck('count', 'month_name');
+
+        $labels2 = $sales_chart->keys();
+        $data2 = $sales_chart->values();
+        // dd($sales_chart);
+        //CHARTS FOR SALES
+
         return view('dashboards.index', compact(
             'users',
             'verified_users',
@@ -352,7 +389,13 @@ class ApparelController extends Controller
             'most_sold_apparels',
             'most_carted_apparels',
             'least_sold_apparels',
-            'apparels_sold'
+            'apparels_sold',
+            'labels',
+            'data',
+            'labels1',
+            'data1',
+            'labels2',
+            'data2'
         ));
     }
 }

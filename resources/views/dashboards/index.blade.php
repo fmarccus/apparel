@@ -120,12 +120,15 @@
             <div class="row">
                 <!-- USER DATA -->
                 <h2 class="text-center">User Information</h2>
+                
                 <hr>
-
+                <div class="col-sm-12">
+                    <canvas id="userChart" height="100px"></canvas>
+                </div>
                 <div class="col-sm-3 mb-2">
                     <div class="card border-white rounded-0 gradient-blue text-light" style="height:8rem">
                         <div class="card-body">
-                            <h1 class="card-title ">{{$users}}</h1>
+                            <h1 class="card-title ">{{$users}} <i class="float-end fa-2x fa-solid fa-users"></i></h1>
                             <p class="card-text ">registered users</p>
                         </div>
                     </div>
@@ -133,7 +136,7 @@
                 <div class="col-sm-3 mb-2">
                     <div class="card border-white rounded-0 gradient-green text-light" style="height:8rem">
                         <div class="card-body">
-                            <h1 class="card-title">{{$verified_users}}</h1>
+                            <h1 class="card-title">{{$verified_users}} <i class="fa-2x float-end fa-solid fa-user-check"></i></h1>
                             <p class="card-text">verified users</p>
                         </div>
                     </div>
@@ -141,7 +144,7 @@
                 <div class="col-sm-3 mb-2">
                     <div class="card border-white rounded-0 gradient-yellow text-light" style="height:8rem">
                         <div class="card-body">
-                            <h1 class="card-title">{{$unverified_users}}</h1>
+                            <h1 class="card-title">{{$unverified_users}} <i class="fa-2x float-end fa-solid fa-user-large-slash"></i></h1>
                             <p class="card-text">unverified users</p>
                         </div>
                     </div>
@@ -149,182 +152,268 @@
                 <div class="col-sm-3 mb-2">
                     <div class="card border-white rounded-0 gradient-pink text-light" style="height:8rem">
                         <div class="card-body">
-                            <h1 class="card-title">{{$server_accounts}}</h1>
+                            <h1 class="card-title">{{$server_accounts}} <i class="fa-2x float-end fa-solid fa-user-tie"></i></h1>
                             <p class="card-text">server accounts</p>
                         </div>
                     </div>
                 </div>
                 <!-- APPARELS -->
-                <h2 class="mt-5 text-center">Inventory Information</h4>
-                    <hr>
-                    <div class="col-sm-3 mb-2">
-                        <div class="card border-white rounded-0 velvet-sun text-light" style="height:10rem;">
-                            <div class="card-body">
-                                <h1 class="card-title">{{$unique_apparels}}</h1>
-                                <p class="card-text">unique apparels</p>
-                            </div>
+                <h2 class="mt-5 text-center">Inventory Information</h2>
+                <hr>
+                <div class="col-sm-12">
+                    <canvas id="apparelChart" height="100px"></canvas>
+                </div>
+                <div class="col-sm-3 mb-2">
+                    <div class="card border-white rounded-0 velvet-sun text-light" style="height:10rem;">
+                        <div class="card-body">
+                            <h1 class="card-title">{{$unique_apparels}} <i class="fa-2x float-end fa-solid fa-shirt"></i></h1>
+                            <p class="card-text">unique apparels</p>
                         </div>
                     </div>
-                    <div class="col-sm-3 mb-2">
-                        <div class="card border-white rounded-0 orange-coral text-light" style="height:10rem;">
-                            <div class="card-body">
-                                <h1 class="card-title">{{$quantity_apparels}}</h1>
-                                <p class="card-text">total apparels on hand</p>
-                            </div>
+                </div>
+                <div class="col-sm-3 mb-2">
+                    <div class="card border-white rounded-0 orange-coral text-light" style="height:10rem;">
+                        <div class="card-body">
+                            <h1 class="card-title">{{$quantity_apparels}} <i class="fa-2x float-end fa-solid fa-cart-flatbed"></i></h1>
+                            <p class="card-text">total apparels on hand</p>
                         </div>
                     </div>
-                    <div class="col-sm-3 mb-2">
-                        <div class="card border-white rounded-0 broken-hearts text-light" style="height:10rem;">
-                            <div class="card-body">
-                                <h1 class="card-title">P{{number_format($cheapest_apparel,2)}}</h1>
-                                <p class="card-text">cheapest apparel</p>
-                            </div>
+                </div>
+                <div class="col-sm-3 mb-2">
+                    <div class="card border-white rounded-0 broken-hearts text-light" style="height:10rem;">
+                        <div class="card-body">
+                            <h1 class="card-title">P{{number_format($cheapest_apparel,2)}} <i class="fa-2x float-end fa-solid fa-arrow-down-1-9"></i></h1>
+                            <p class="card-text">cheapest apparel</p>
                         </div>
                     </div>
-                    <div class="col-sm-3 mb-2">
-                        <div class="card border-white rounded-0 relay text-light" style="height:10rem;">
-                            <div class="card-body">
-                                <h1 class="card-title">P{{number_format($expensive_apparel,2)}}</h4>
-                                    <p class="card-text">most expensive apparel</p>
-                            </div>
+                </div>
+                <div class="col-sm-3 mb-2">
+                    <div class="card border-white rounded-0 relay text-light" style="height:10rem;">
+                        <div class="card-body">
+                            <h1 class="card-title">P{{number_format($expensive_apparel,2)}} <i class="fa-2x float-end fa-solid fa-arrow-up-9-1"></i></h4>
+                                <p class="card-text">most expensive apparel</p>
                         </div>
                     </div>
-                    <!-- APPARELS BY CATEGORY -->
-                    <h4 class="mt-5">Unique Apparels by Category</h4>
-                    <div class="progress mt-2 mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$bodycon}}" aria-valuemin="0" aria-valuemax="{{$bodycon}}" style="width: {{$bodycon+5}}%">{{$bodycon}} Bodycon</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$cami}}" aria-valuemin="0" aria-valuemax="{{$cami}}" style="width: {{$cami+5}}%">{{$cami}} Cami</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$graphic}}" aria-valuemin="0" aria-valuemax="{{$graphic}}" style="width: {{$graphic+5}}%">{{$graphic}} Graphic</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$polo}}" aria-valuemin="0" aria-valuemax="{{$polo}}" style="width: {{$polo+5}}%">{{$polo}} Polo</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$romper}}" aria-valuemin="0" aria-valuemax="{{$romper}}" style="width: {{$romper+5}}%">{{$romper}} Romper</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$shirt}}" aria-valuemin="0" aria-valuemax="{{$shirt}}" style="width: {{$shirt+5}}%">{{$shirt}} Shirt</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$tee}}" aria-valuemin="0" aria-valuemax="{{$tee}}" style="width: {{$tee+5}}%">{{$tee}} Tee</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$tiedye}}" aria-valuemin="0" aria-valuemax="{{$tiedye}}" style="width: {{$tiedye+5}}%">{{$tiedye}} Tiedye</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$top}}" aria-valuemin="0" aria-valuemax="{{$top}}" style="width: {{$top+5}}%">{{$top}} Top</div>
-                    </div>
-                    <!-- SHIPPING INFORMATION -->
+                </div>
+                <!-- APPARELS BY CATEGORY -->
+                <h4 class="mt-5">Unique Apparels by Category</h4>
+                <div class="progress mt-2 mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$bodycon}}" aria-valuemin="0" aria-valuemax="{{$bodycon}}" style="width: {{$bodycon+5}}%">{{$bodycon}} BODYCON</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$cami}}" aria-valuemin="0" aria-valuemax="{{$cami}}" style="width: {{$cami+5}}%">{{$cami}} CAMI</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$graphic}}" aria-valuemin="0" aria-valuemax="{{$graphic}}" style="width: {{$graphic+5}}%">{{$graphic}} GRAPHIC</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$polo}}" aria-valuemin="0" aria-valuemax="{{$polo}}" style="width: {{$polo+5}}%">{{$polo}} POLO</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$romper}}" aria-valuemin="0" aria-valuemax="{{$romper}}" style="width: {{$romper+5}}%">{{$romper}} ROMPER</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$shirt}}" aria-valuemin="0" aria-valuemax="{{$shirt}}" style="width: {{$shirt+5}}%">{{$shirt}} SHIRT</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$tee}}" aria-valuemin="0" aria-valuemax="{{$tee}}" style="width: {{$tee+5}}%">{{$tee}} TEE</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$tiedye}}" aria-valuemin="0" aria-valuemax="{{$tiedye}}" style="width: {{$tiedye+5}}%">{{$tiedye}} TIE DYE</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$top}}" aria-valuemin="0" aria-valuemax="{{$top}}" style="width: {{$top+5}}%">{{$top}} TOP</div>
+                </div>
+                <!-- SHIPPING INFORMATION -->
 
-                    <h2 class="mt-5 text-center">Shipping Information</h2>
-                    <hr>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0 opa text-light" style="height:10rem">
-                            <div class="card-body">
-                                <h1 class="card-title">{{$pending_orders}}</h4>
-                                    <p class="card-text">pending orders</p>
-                            </div>
+                <h2 class="mt-5 text-center">Shipping Information</h2>
+                <hr>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0 opa text-light" style="height:10rem">
+                        <div class="card-body">
+                            <h1 class="card-title">{{$pending_orders}} <i class="fa-2x float-end fa-solid fa-business-time"></i></h4>
+                                <p class="card-text">pending orders</p>
                         </div>
                     </div>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0 aqualicious text-light" style="height:10rem">
-                            <div class="card-body">
-                                <h1 class="card-title">{{$for_delivery_orders}}</h1>
-                                <p class="card-text">for delivery</p>
-                            </div>
+                </div>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0 aqualicious text-light" style="height:10rem">
+                        <div class="card-body">
+                            <h1 class="card-title">{{$for_delivery_orders}} <i class="fa-2x float-end fa-solid fa-truck"></i></h1>
+                            <p class="card-text">for delivery</p>
                         </div>
                     </div>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0 teal-love text-light" style="height:10rem">
-                            <div class="card-body">
-                                <h1 class="card-title">{{$completed_orders}}</h1>
-                                <p class="card-text">orders completed</p>
-                            </div>
+                </div>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0 teal-love text-light" style="height:10rem">
+                        <div class="card-body">
+                            <h1 class="card-title">{{$completed_orders}} <i class="fa-2x float-end fa-solid fa-square-check"></i></h1>
+                            <p class="card-text">orders completed</p>
                         </div>
                     </div>
-                    <!-- SALES INFORMATION -->
-                    <h2 class="mt-5 text-center">Sales Information</h2>
-                    <hr>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0 lunada">
-                            <div class="card-body">
-                                <h1 class="card-title">P{{number_format($expenditures,2)}}</h4>
-                                    <p class="card-text">expenditure</p>
-                                    <h1 class="card-title">{{number_format($apparels_sold,0)}} <small class="text-success">({{number_format($apparels_sold/$quantity_apparels,5)}}%)</small> </h1>
-                                    <p class="card-text">apparels sold</p>
-                                    <h1 class="card-title">{{number_format($quantity_apparels,0)}} <small class="text-danger">({{(1 - number_format($apparels_sold/$quantity_apparels,5))*100}}%)</small></h1>
-                                    <p class="card-text">remaining to be sold</p>
-                            </div>
+                </div>
+                <!-- SALES INFORMATION -->
+                <h2 class="mt-5 text-center">Sales Information</h2>
+                <hr>
+                <div class="col-sm-12">
+                    <canvas id="saleChart" height="100px"></canvas>
+                </div>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0 lunada">
+                        <div class="card-body">
+                            <h1 class="card-title">P{{number_format($expenditures,2)}} <i class="fa-2x float-end fa-solid fa-money-bill-1"></i></h4>
+                                <p class="card-text">expenditure</p>
+                                <h1 class="card-title">{{number_format($apparels_sold,0)}} <small class="text-success">({{number_format($apparels_sold/$quantity_apparels,5)}}%)</small> </h1>
+                                <p class="card-text">apparels sold</p>
+                                <h1 class="card-title">{{number_format($quantity_apparels,0)}} <small class="text-danger">({{(1 - number_format($apparels_sold/$quantity_apparels,5))*100}}%)</small></h1>
+                                <p class="card-text">remaining to be sold</p>
                         </div>
                     </div>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0 lunada">
-                            <div class="card-body">
-                                <h1 class="card-title">P{{number_format($target_gross_sales,2)}}</h1>
-                                <p class="card-text">target gross sales</p>
-                                <h1 class="card-title">P{{number_format($curr_gross_sales,2)}} <small class="text-success">({{number_format($curr_gross_sales/$target_gross_sales,5)}}%)</small></h1>
-                                <p class="card-text">current gross sales</p>
-                                <h1 class="card-title">P{{number_format($diff_gross_sales,2)}} <small class="text-danger">({{(1 - number_format($curr_gross_sales/$target_gross_sales,5))*100}}%)</small></h4>
-                                    <p class="card-text">remaining to reach target gross sales</p>
+                </div>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0 lunada">
+                        <div class="card-body">
+                            <h1 class="card-title">P{{number_format($target_gross_sales,2)}} <i class="fa-2x float-end fa-solid fa-money-bill-trend-up"></i></h1>
+                            <p class="card-text">target gross sales</p>
+                            <h1 class="card-title">P{{number_format($curr_gross_sales,2)}} <small class="text-success">({{number_format($curr_gross_sales/$target_gross_sales,5)}}%)</small></h1>
+                            <p class="card-text">current gross sales</p>
+                            <h1 class="card-title">P{{number_format($diff_gross_sales,2)}} <small class="text-danger">({{(1 - number_format($curr_gross_sales/$target_gross_sales,5))*100}}%)</small></h4>
+                                <p class="card-text">remaining to reach target gross sales</p>
 
-                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0 lunada">
-                            <div class="card-body">
-                                <h1 class="card-title">P{{number_format($target_profit,2)}}</h4>
-                                    <p class="card-text">target profit</p>
-                                    <h1 class="card-title">P{{number_format($curr_profit,2)}} <small class="text-success">({{number_format($curr_profit/$target_profit,5)}}%)</small></h1>
-                                    <p class="card-text">current profit</p>
-                                    <h1 class="card-title">P{{number_format($diff_profit,2)}} <small class="text-danger">({{(1 - number_format($curr_profit/$target_profit,5))*100}}%)</small></h1>
-                                    <p class="card-text">remaining to reach target profit</p>
-                            </div>
+                </div>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0 lunada">
+                        <div class="card-body">
+                            <h1 class="card-title">P{{number_format($target_profit,2)}} <i class="fa-2x float-end fa-solid fa-peso-sign"></i></h4>
+                                <p class="card-text">target profit</p>
+                                <h1 class="card-title">P{{number_format($curr_profit,2)}} <small class="text-success">({{number_format($curr_profit/$target_profit,5)}}%)</small></h1>
+                                <p class="card-text">current profit</p>
+                                <h1 class="card-title">P{{number_format($diff_profit,2)}} <small class="text-danger">({{(1 - number_format($curr_profit/$target_profit,5))*100}}%)</small></h1>
+                                <p class="card-text">remaining to reach target profit</p>
                         </div>
                     </div>
-                    <h2 class="mt-5 text-center">Miscellaneous</h2>
-                    <hr>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0">
-                            <div class="card-body">
-                                <h5 class="card-title">Most sold apparels</h5>
-                                <ul class="list-group list-group-flush">
-                                    @foreach($most_sold_apparels as $most_sold_apparel)
-                                    <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$most_sold_apparel->item_name}} <span class="text-info fw-bold">({{$most_sold_apparel->item_qty}})</span></a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                </div>
+                <h2 class="mt-5 text-center">Miscellaneous</h2>
+                <hr>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Most sold apparels</h5>
+                            <ul class="list-group list-group-flush">
+                                @foreach($most_sold_apparels as $most_sold_apparel)
+                                <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$most_sold_apparel->item_name}} <span class="text-info fw-bold">({{$most_sold_apparel->item_qty}})</span></a></li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0">
-                            <div class="card-body">
-                                <h5 class="card-title">Most carted apparels</h5>
-                                <ul class="list-group list-group-flush">
-                                    @foreach($most_carted_apparels as $most_carted_apparel)
-                                    <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$most_carted_apparel->item_name}} <span class="text-info fw-bold">({{$most_sold_apparel->item_qty}})</span></a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                </div>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Most carted apparels</h5>
+                            <ul class="list-group list-group-flush">
+                                @foreach($most_carted_apparels as $most_carted_apparel)
+                                <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$most_carted_apparel->item_name}} <span class="text-info fw-bold">({{$most_carted_apparel->item_qty}})</span></a></li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-sm-4 mb-2">
-                        <div class="card border-white rounded-0">
-                            <div class="card-body">
-                                <h5 class="card-title">Least sold apparels</h5>
-                                <ul class="list-group list-group-flush">
-                                    @foreach($least_sold_apparels as $least_sold_apparel)
-                                    <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$least_sold_apparel->item_name}} <span class="text-info fw-bold">({{$most_sold_apparel->item_qty}})</span></a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                </div>
+                <div class="col-sm-4 mb-2">
+                    <div class="card border-white rounded-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Least sold apparels</h5>
+                            <ul class="list-group list-group-flush">
+                                @foreach($least_sold_apparels as $least_sold_apparel)
+                                <li class="list-group-item"> <a href="/apparels/edit/{{$most_sold_apparel->item_id}}">{{$least_sold_apparel->item_name}} <span class="text-info fw-bold">({{$least_sold_apparel->item_qty}})</span></a></li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
+                </div>
+                
             </div>
         </div>
     </section>
 </x-app-layout>
+  
+<script type="text/javascript">
+  
+      var labels =  {{ Js::from($labels) }};
+      var users =  {{ Js::from($data) }};
+  
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'Number of Registered Users',
+          backgroundColor: 'rgb(204, 204, 255)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: users,
+        }]
+      };
+  
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+      };
+  
+      const myChart = new Chart(
+        document.getElementById('userChart'),
+        config
+      );
+
+     
+</script>
+<script type="text/javascript">
+     var labels1 =  {{ Js::from($labels1) }};
+      var users1 =  {{ Js::from($data1) }};
+  
+      const data1 = {
+        labels: labels1,
+        datasets: [{
+          label: 'Number of Unique Apparels added in Inventory',
+          backgroundColor: 'rgb(255, 204, 209)',
+          borderColor: 'rgb(255, 204, 209)',
+          data: users1,
+        }]
+      };
+  
+      const config1 = {
+        type: 'bar',
+        data: data1,
+        options: {}
+      };
+  
+      const myChart1 = new Chart(
+        document.getElementById('apparelChart'),
+        config1
+      );
+</script>
+<script type="text/javascript">
+     var labels2 =  {{ Js::from($labels2) }};
+      var users2 =  {{ Js::from($data2) }};
+  
+      const data2 = {
+        labels: labels2,
+        datasets: [{
+          label: 'Total Sales per month',
+          backgroundColor: 'rgb(102, 255, 78)',
+          borderColor: 'rgb(255, 204, 209)',
+          data: users2,
+        }]
+      };
+  
+      const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+      };
+  
+      const myChart2 = new Chart(
+        document.getElementById('saleChart'),
+        config2
+      );
+</script>
