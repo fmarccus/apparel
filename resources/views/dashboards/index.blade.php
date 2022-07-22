@@ -129,7 +129,7 @@
                     <div class="card border-white rounded-0 gradient-blue text-light" style="height:8rem">
                         <div class="card-body">
                             <h1 class="card-title ">{{$users}} <i class="float-end fa-2x fa-solid fa-users"></i></h1>
-                            <p class="card-text ">registered users</p>
+                            <p class="card-text ">Registered users</p>
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                     <div class="card border-white rounded-0 gradient-green text-light" style="height:8rem">
                         <div class="card-body">
                             <h1 class="card-title">{{$verified_users}} <i class="fa-2x float-end fa-solid fa-user-check"></i></h1>
-                            <p class="card-text">verified users</p>
+                            <p class="card-text">Verified users</p>
                         </div>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                     <div class="card border-white rounded-0 gradient-yellow text-light" style="height:8rem">
                         <div class="card-body">
                             <h1 class="card-title">{{$unverified_users}} <i class="fa-2x float-end fa-solid fa-user-large-slash"></i></h1>
-                            <p class="card-text">unverified users</p>
+                            <p class="card-text">Unverified users</p>
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                     <div class="card border-white rounded-0 gradient-pink text-light" style="height:8rem">
                         <div class="card-body">
                             <h1 class="card-title">{{$server_accounts}} <i class="fa-2x float-end fa-solid fa-user-tie"></i></h1>
-                            <p class="card-text">server accounts</p>
+                            <p class="card-text">Server accounts</p>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
                     <div class="card border-white rounded-0 velvet-sun text-light" style="height:10rem;">
                         <div class="card-body">
                             <h1 class="card-title">{{$unique_apparels}} <i class="fa-2x float-end fa-solid fa-shirt"></i></h1>
-                            <p class="card-text">unique apparels</p>
+                            <p class="card-text">Unique apparels</p>
                         </div>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                     <div class="card border-white rounded-0 orange-coral text-light" style="height:10rem;">
                         <div class="card-body">
                             <h1 class="card-title">{{$quantity_apparels}} <i class="fa-2x float-end fa-solid fa-cart-flatbed"></i></h1>
-                            <p class="card-text">total apparels on hand</p>
+                            <p class="card-text">Total apparels on hand</p>
                         </div>
                     </div>
                 </div>
@@ -183,7 +183,7 @@
                     <div class="card border-white rounded-0 broken-hearts text-light" style="height:10rem;">
                         <div class="card-body">
                             <h1 class="card-title">P{{number_format($cheapest_apparel,2)}} <i class="fa-2x float-end fa-solid fa-arrow-down-1-9"></i></h1>
-                            <p class="card-text">cheapest apparel</p>
+                            <p class="card-text">Cheapest apparel</p>
                         </div>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
                     <div class="card border-white rounded-0 relay text-light" style="height:10rem;">
                         <div class="card-body">
                             <h1 class="card-title">P{{number_format($expensive_apparel,2)}} <i class="fa-2x float-end fa-solid fa-arrow-up-9-1"></i></h4>
-                                <p class="card-text">most expensive apparel</p>
+                                <p class="card-text">Most expensive apparel</p>
                         </div>
                     </div>
                 </div>
@@ -232,7 +232,7 @@
                     <div class="card border-white rounded-0 opa text-light" style="height:10rem">
                         <div class="card-body">
                             <h1 class="card-title">{{$pending_orders}} <i class="fa-2x float-end fa-solid fa-business-time"></i></h4>
-                                <p class="card-text">pending orders</p>
+                                <p class="card-text">Pending orders</p>
                         </div>
                     </div>
                 </div>
@@ -240,7 +240,7 @@
                     <div class="card border-white rounded-0 aqualicious text-light" style="height:10rem">
                         <div class="card-body">
                             <h1 class="card-title">{{$for_delivery_orders}} <i class="fa-2x float-end fa-solid fa-truck"></i></h1>
-                            <p class="card-text">for delivery</p>
+                            <p class="card-text">For delivery</p>
                         </div>
                     </div>
                 </div>
@@ -248,7 +248,7 @@
                     <div class="card border-white rounded-0 teal-love text-light" style="height:10rem">
                         <div class="card-body">
                             <h1 class="card-title">{{$completed_orders}} <i class="fa-2x float-end fa-solid fa-square-check"></i></h1>
-                            <p class="card-text">orders completed</p>
+                            <p class="card-text">Orders completed</p>
                         </div>
                     </div>
                 </div>
@@ -262,11 +262,11 @@
                     <div class="card border-white rounded-0 lunada">
                         <div class="card-body">
                             <h1 class="card-title">P{{number_format($expenditures,2)}} <i class="fa-2x float-end fa-solid fa-money-bill-1"></i></h4>
-                                <p class="card-text">expenditure</p>
+                                <p class="card-text">Expenditure</p>
                                 <h1 class="card-title">{{number_format($apparels_sold,0)}} <small class="text-success">({{number_format($apparels_sold/$quantity_apparels,5)}}%)</small> </h1>
-                                <p class="card-text">apparels sold</p>
+                                <p class="card-text">Apparels sold</p>
                                 <h1 class="card-title">{{number_format($quantity_apparels,0)}} <small class="text-danger">({{(1 - number_format($apparels_sold/$quantity_apparels,5))*100}}%)</small></h1>
-                                <p class="card-text">remaining to be sold</p>
+                                <p class="card-text">Remaining to be sold</p>
                         </div>
                     </div>
                 </div>
@@ -274,11 +274,11 @@
                     <div class="card border-white rounded-0 lunada">
                         <div class="card-body">
                             <h1 class="card-title">P{{number_format($target_gross_sales,2)}} <i class="fa-2x float-end fa-solid fa-money-bill-trend-up"></i></h1>
-                            <p class="card-text">target gross sales</p>
+                            <p class="card-text">Target gross sales</p>
                             <h1 class="card-title">P{{number_format($curr_gross_sales,2)}} <small class="text-success">({{number_format($curr_gross_sales/$target_gross_sales,5)}}%)</small></h1>
-                            <p class="card-text">current gross sales</p>
+                            <p class="card-text">Current gross sales</p>
                             <h1 class="card-title">P{{number_format($diff_gross_sales,2)}} <small class="text-danger">({{(1 - number_format($curr_gross_sales/$target_gross_sales,5))*100}}%)</small></h4>
-                                <p class="card-text">remaining to reach target gross sales</p>
+                                <p class="card-text">Remaining to reach target gross sales</p>
 
                         </div>
                     </div>
@@ -287,11 +287,11 @@
                     <div class="card border-white rounded-0 lunada">
                         <div class="card-body">
                             <h1 class="card-title">P{{number_format($target_profit,2)}} <i class="fa-2x float-end fa-solid fa-peso-sign"></i></h4>
-                                <p class="card-text">target profit</p>
+                                <p class="card-text">Target profit</p>
                                 <h1 class="card-title">P{{number_format($curr_profit,2)}} <small class="text-success">({{number_format($curr_profit/$target_profit,5)}}%)</small></h1>
-                                <p class="card-text">current profit</p>
+                                <p class="card-text">Current profit</p>
                                 <h1 class="card-title">P{{number_format($diff_profit,2)}} <small class="text-danger">({{(1 - number_format($curr_profit/$target_profit,5))*100}}%)</small></h1>
-                                <p class="card-text">remaining to reach target profit</p>
+                                <p class="card-text">Remaining to reach target profit</p>
                         </div>
                     </div>
                 </div>
