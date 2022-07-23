@@ -109,6 +109,15 @@ class ApparelController extends Controller
                 'type' => 'required|max:55',
                 'file' => 'required|image|mimes:jpeg,jpg,png,gif|max:4096'
             ], []);
+            $dashboard = new Dashboard();
+            $dashboard->name = $request->name;
+            $dashboard->sku = $request->sku;
+            $dashboard->quantity = $request->quantity;
+            $dashboard->purchasePrice = $request->purchasePrice;
+            $dashboard->retailPrice = $request->retailPrice;
+            $dashboard->color = $request->color;
+            $dashboard->style = $request->style;
+            $dashboard->type = $request->type;
 
             $apparel = new Apparel();
             $apparel->name = $request->name;
@@ -125,7 +134,11 @@ class ApparelController extends Controller
             $image->move(public_path('images'), $imageName);
 
             $apparel->image = $imageName;
+            $dashboard->image = $imageName;
+
             $apparel->save();
+            $dashboard->save();
+
             return back()->with('success', '');
         } else {
             return redirect('login');
