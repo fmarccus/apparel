@@ -37,9 +37,9 @@
                         {{ __('Messages') }}
                     </x-jet-nav-link>
 
+                    @endif
 
-
-                    @elseif(Auth::user()->userType == 1)
+                    @if(Auth::user()->userType == 1)
                     <x-jet-nav-link class="text-decoration-none" href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart')">
                         {{ __('Apparels') }}
                     </x-jet-nav-link>
@@ -50,10 +50,10 @@
                         {{ __('Completed Orders') }}
                     </x-jet-nav-link>
 
-                    @else
+                    @endif
 
 
-
+                    @if(Auth::user()->userType == 2)
                     <x-jet-nav-link href="{{ route('apparel.orders') }}" :active="request()->routeIs('apparel.orders') || request()->routeIs('apparel.order_details')" class="text-decoration-none">
                         {{ __('Pending Orders') }}
                     </x-jet-nav-link>
@@ -208,7 +208,8 @@
                 {{ __('Messages') }}
             </x-jet-responsive-nav-link>
 
-            @elseif(Auth::user()->userType == 1)
+            @endif
+            @if(Auth::user()->userType == 1)
             <x-jet-responsive-nav-link class="text-decoration-none" href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index') ||request()->routeIs('shop.addtocart') ">
                 {{ __('Apparels') }}
             </x-jet-responsive-nav-link>
@@ -219,9 +220,9 @@
                 {{ __('Completed Orders') }}
             </x-jet-responsive-nav-link>
 
+            @endif
 
-
-            @else
+            @if(Auth::user()->userType == 2)
             <x-jet-responsive-nav-link href="{{ route('apparel.orders') }}" :active="request()->routeIs('apparel.orders') || request()->routeIs('apparel.order_details')" class="text-decoration-none">
                 {{ __('Pending Orders') }}
             </x-jet-responsive-nav-link>

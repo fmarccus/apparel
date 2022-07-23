@@ -112,6 +112,7 @@ class ApparelController extends Controller
             $dashboard = new Dashboard();
             $dashboard->name = $request->name;
             $dashboard->sku = $request->sku;
+            $dashboard->orig_quantity = $request->quantity;
             $dashboard->quantity = $request->quantity;
             $dashboard->purchasePrice = $request->purchasePrice;
             $dashboard->retailPrice = $request->retailPrice;
@@ -122,6 +123,7 @@ class ApparelController extends Controller
             $apparel = new Apparel();
             $apparel->name = $request->name;
             $apparel->sku = $request->sku;
+            $apparel->orig_quantity = $request->quantity;
             $apparel->quantity = $request->quantity;
             $apparel->purchasePrice = $request->purchasePrice;
             $apparel->retailPrice = $request->retailPrice;
@@ -171,6 +173,8 @@ class ApparelController extends Controller
             ], []);
 
             $apparel = Apparel::find($id);
+            $dashboard = Dashboard::find($id);
+
             $apparel->name = $request->name;
             $apparel->sku = $request->sku;
             $apparel->quantity = $request->quantity;
@@ -180,12 +184,25 @@ class ApparelController extends Controller
             $apparel->style = $request->style;
             $apparel->type = $request->type;
 
+            $dashboard->name = $request->name;
+            $dashboard->sku = $request->sku;
+            $dashboard->quantity = $request->quantity;
+            $dashboard->purchasePrice = $request->purchasePrice;
+            $dashboard->retailPrice = $request->retailPrice;
+            $dashboard->color = $request->color;
+            $dashboard->style = $request->style;
+            $dashboard->type = $request->type;
+
             $image = $request->file('file');
             $imageName = time() . '.' . $image->extension();
             $image->move(public_path('images'), $imageName);
 
             $apparel->image = $imageName;
+            $dashboard->image = $imageName;
+
             $apparel->save();
+            $dashboard->save();
+
             return back()->with('updated', '');
         } else {
             return redirect('login');
@@ -196,11 +213,15 @@ class ApparelController extends Controller
     {
         if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
             $apparel = Apparel::find($id);
+            $apparel_dashboard = Dashboard::find($id);
+
             $directory = 'images/' . $apparel->image;
             if (File::exists($directory)) {
                 File::delete($directory);
             }
+            
             $apparel->delete();
+            $apparel_dashboard->delete();
             return redirect()->to('/apparels')->with('deleted', '');
         } else {
             return redirect('login');
@@ -209,7 +230,7 @@ class ApparelController extends Controller
     //GET ORDERS LIST
     public function orders()
     {
-        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 || Auth::user()->userType == 2 && Auth::user()->email_verified_at != NULL) {
             $search = request()->query('search');
             if ($search) {
                 $orders = Cart::where('id', 'LIKE', "%{$search}%")
@@ -229,7 +250,7 @@ class ApparelController extends Controller
     //GET ORDER DETAILS
     public function order_details($id)
     {
-        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 || Auth::user()->userType == 2 && Auth::user()->email_verified_at != NULL) {
             $order = Cart::find($id);
             return view('apparels.order_details', compact('order'));
         } else {
@@ -239,7 +260,7 @@ class ApparelController extends Controller
     //CHANGE ORDER STATUS
     public function change_order_status(Request $request, $id)
     {
-        if (Auth::user()->userType == 0 && Auth::user()->email_verified_at != NULL) {
+        if (Auth::user()->userType == 0 || Auth::user()->userType == 2 && Auth::user()->email_verified_at != NULL) {
             $request->validate([
                 'item_status' => 'required|in:Pending,For delivery,Completed'
             ], []);
@@ -317,8 +338,8 @@ class ApparelController extends Controller
         $top = DB::table('dashboards')->where('type', '=', 'Top')->count();
         //expenses / sales
         $apparels_sold = DB::table('carts')->where('item_status', 'Completed')->sum('item_qty');
-        $expenditures = Dashboard::sum(DB::raw('purchasePrice * quantity'));
-        $target_gross_sales = Dashboard::sum(DB::raw('retailPrice * quantity'));
+        $expenditures = Dashboard::sum(DB::raw('purchasePrice * orig_quantity'));
+        $target_gross_sales = Dashboard::sum(DB::raw('retailPrice * orig_quantity'));
         $target_profit = $target_gross_sales - $expenditures;
         $curr_gross_sales = DB::table('carts')->where('item_status', '=', 'Completed')->sum(DB::raw('item_price * item_qty'));
         $diff_gross_sales = $target_gross_sales - $curr_gross_sales;

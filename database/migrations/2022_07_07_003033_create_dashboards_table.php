@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('sku');
+            $table->double('orig_quantity');
             $table->double('quantity');
             $table->double('purchasePrice');
             $table->double('retailPrice');
