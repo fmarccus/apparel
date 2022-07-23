@@ -1,28 +1,28 @@
 <style>
     .gradient-blue {
-        background: linear-gradient(45deg, #4099ff, #73b4ff);
+        background: linear-gradient(10deg, #38ef7d, #11998e);
     }
 
     .gradient-green {
         background: rgb(51, 222, 183);
-        background: linear-gradient(90deg, rgba(51, 222, 183, 1) 35%, rgba(74, 221, 180, 1) 70%, rgba(180, 231, 194, 1) 100%);
+        background: linear-gradient(10deg, #6DD5FA, #1c92d2);
     }
 
     .gradient-yellow {
         background: #CAC531;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);
+        background: -webkit-linear-gradient(10deg, #F27121, #c31432);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #F3F9A7, #CAC531);
+        background: linear-gradient(10deg, #F27121, #c31432);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
     .gradient-pink {
         background: #800080;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #ffc0cb, #800080);
+        background: -webkit-linear-gradient(10deg, #ffd452, #544a7d);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #ffc0cb, #800080);
+        background: linear-gradient(10deg, #ffd452, #544a7d);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
@@ -30,9 +30,9 @@
     .velvet-sun {
         background: #e1eec3;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #f05053, #e1eec3);
+        background: -webkit-linear-gradient(10deg, #e1eec3, #f05053);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #f05053, #e1eec3);
+        background: linear-gradient(10deg, #e1eec3, #f05053);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
@@ -40,9 +40,9 @@
     .orange-coral {
         background: #ff9966;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);
+        background: -webkit-linear-gradient(10deg, #ff5e62, #ff9966);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #ff5e62, #ff9966);
+        background: linear-gradient(10deg, #ff5e62, #ff9966);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
@@ -50,27 +50,27 @@
     .relay {
         background: #3A1C71;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+        background: -webkit-linear-gradient(10deg, #FFAF7B, #009FFF);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+        background: linear-gradient(10deg, #FFAF7B,  #009FFF);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
     .broken-hearts {
         background: #F2994A;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #F2C94C, #F2994A);
+        background: -webkit-linear-gradient(10deg, #F2C94C, #F2994A);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #F2C94C, #F2994A);
+        background: linear-gradient(10deg, #F2C94C, #F2994A);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
     .teal-love {
         background: #AAFFA9;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #11FFBD, #AAFFA9);
+        background: -webkit-linear-gradient(10deg, #AAFFA9, #11FFBD);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #11FFBD, #AAFFA9);
+        background: linear-gradient(10deg, #AAFFA9, #11FFBD);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
@@ -78,7 +78,7 @@
     .aqualicious {
         background: #50C9C3;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+        background: -webkit-linear-gradient(10deg, #96DEDA, #50C9C3);
         /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #96DEDA, #50C9C3);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -88,9 +88,9 @@
     .opa {
         background: #DAE2F8;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to top, #D6A4A4, #DAE2F8);
+        background: -webkit-linear-gradient(10deg, #ffd89b, #19547b);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to top, #D6A4A4, #DAE2F8);
+        background: linear-gradient(10deg, #ffd89b, #19547b);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
@@ -98,14 +98,15 @@
     .lunada {
         background: #ECE9E6;
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
+        background: -webkit-linear-gradient(10deg, #C6FFDD, #FBD786, #f7797d);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+        background: linear-gradient(10deg, #C6FFDD, #FBD786, #f7797d);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 
     }
+    
 </style>
 <x-app-layout>
     <x-slot name="header">
@@ -167,7 +168,7 @@
                     <div class="card border-white rounded-0 velvet-sun text-light" style="height:10rem;">
                         <div class="card-body">
                             <h1 class="card-title">{{$unique_apparels}} <i class="fa-2x float-end fa-solid fa-shirt"></i></h1>
-                            <p class="card-text">Unique apparels</p>
+                            <p class="card-text">Unique apparel</p>
                         </div>
                     </div>
                 </div>
@@ -197,32 +198,32 @@
                 </div>
                 <!-- APPARELS BY CATEGORY -->
                 <h4 class="mt-5">Unique Apparels by Category</h4>
-                <div class="progress mt-2 mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$bodycon}}" aria-valuemin="0" aria-valuemax="{{$bodycon}}" style="width: {{$bodycon+5}}%">{{$bodycon}} BODYCON</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar " aria-valuenow="{{$bodycon}}" aria-valuemin="0" aria-valuemax="{{$bodycon}}" style="width: {{$bodycon+5}}%; "><p style="margin: auto; color:black; font-weight:bold;">{{$bodycon}} BODYCON</div>
                 </div>
-                <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$cami}}" aria-valuemin="0" aria-valuemax="{{$cami}}" style="width: {{$cami+5}}%">{{$cami}} CAMI</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{$cami}}" aria-valuemin="0" aria-valuemax="{{$cami}}" style="width: {{$cami+5}}%"> <p style="margin: auto; color:black; font-weight:bold;">{{$cami}} CAMI</div>
                 </div>
-                <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$graphic}}" aria-valuemin="0" aria-valuemax="{{$graphic}}" style="width: {{$graphic+5}}%">{{$graphic}} GRAPHIC</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{$graphic}}" aria-valuemin="0" aria-valuemax="{{$graphic}}" style="width: {{$graphic+5}}%"><p style="margin: auto; color:black; font-weight:bold;">{{$graphic}} GRAPHIC</div>
                 </div>
-                <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$polo}}" aria-valuemin="0" aria-valuemax="{{$polo}}" style="width: {{$polo+5}}%">{{$polo}} POLO</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{$polo}}" aria-valuemin="0" aria-valuemax="{{$polo}}" style="width: {{$polo+5}}%"><p style="margin: auto; color:black; font-weight:bold;">{{$polo}} POLO</div>
                 </div>
-                <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$romper}}" aria-valuemin="0" aria-valuemax="{{$romper}}" style="width: {{$romper+5}}%">{{$romper}} ROMPER</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{$romper}}" aria-valuemin="0" aria-valuemax="{{$romper}}" style="width: {{$romper+5}}%"><p style="margin: auto; color:black; font-weight:bold;">{{$romper}} ROMPER</div>
                 </div>
-                <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$shirt}}" aria-valuemin="0" aria-valuemax="{{$shirt}}" style="width: {{$shirt+5}}%">{{$shirt}} SHIRT</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{$shirt}}" aria-valuemin="0" aria-valuemax="{{$shirt}}" style="width: {{$shirt+5}}%"><p style="margin: auto; color:black; font-weight:bold;">{{$shirt}} SHIRT</div>
                 </div>
-                <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$tee}}" aria-valuemin="0" aria-valuemax="{{$tee}}" style="width: {{$tee+5}}%">{{$tee}} TEE</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{$tee}}" aria-valuemin="0" aria-valuemax="{{$tee}}" style="width: {{$tee+5}}%"><p style="margin: auto; color:black; font-weight:bold;">{{$tee}} TEE</div>
                 </div>
-                <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$tiedye}}" aria-valuemin="0" aria-valuemax="{{$tiedye}}" style="width: {{$tiedye+5}}%">{{$tiedye}} TIE DYE</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{$tiedye}}" aria-valuemin="0" aria-valuemax="{{$tiedye}}" style="width: {{$tiedye+5}}%"><p style="margin: auto; color:black; font-weight:bold;">{{$tiedye}} TIE DYE</div>
                 </div>
-                <div class="progress mb-2">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$top}}" aria-valuemin="0" aria-valuemax="{{$top}}" style="width: {{$top+5}}%">{{$top}} TOP</div>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="{{$top}}" aria-valuemin="0" aria-valuemax="{{$top}}" style="width: {{$top+5}}%"><p style="margin: auto; color:black; font-weight:bold;">{{$top}} TOP</div>
                 </div>
                 <!-- SHIPPING INFORMATION -->
 
@@ -348,8 +349,10 @@
         labels: labels,
         datasets: [{
           label: 'Number of Registered Users',
-          backgroundColor: 'rgb(204, 204, 255)',
-          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgb(199,167,170)',
+          borderColor: 'rgb(26, 26, 26)',
+          borderWidth: 1,
+          barThickness: 60,
           data: users,
         }]
       };
@@ -365,8 +368,8 @@
         config
       );
 
-     
 </script>
+
 <script type="text/javascript">
      var labels1 =  {{ Js::from($labels1) }};
       var users1 =  {{ Js::from($data1) }};
@@ -375,8 +378,10 @@
         labels: labels1,
         datasets: [{
           label: 'Number of Unique Apparels added in Inventory',
-          backgroundColor: 'rgb(255, 204, 209)',
-          borderColor: 'rgb(255, 204, 209)',
+          backgroundColor: 'rgb(199,167,170)',
+          borderColor: 'rgb(26, 26, 26)',
+          borderWidth: 1,
+          barThickness: 60,
           data: users1,
         }]
       };
@@ -400,8 +405,10 @@
         labels: labels2,
         datasets: [{
           label: 'Total Sales per month',
-          backgroundColor: 'rgb(102, 255, 78)',
-          borderColor: 'rgb(102, 255, 78)',
+          backgroundColor: 'rgb(199,167,170)',
+          borderColor: 'rgb(26, 26, 26)',
+          borderWidth: 1,
+          barThickness: 60,
           data: users2,
         }]
       };
